@@ -1,0 +1,260 @@
+\documentclass[main_estudante.tex]{subfiles}
+
+\begin{document}
+
+%\end{comment}
+\paraAmbos
+
+\chapter{Revisão para integrais por partes}
+
+\section{Apresentação}
+
+O objetivo deste capítulo é promover uma revisão de alguns tópicos e habilidades que são necessárias para dominar a técnica de integração chamada \textbf{integração por partes}.
+
+Você notará uma diferença grande entre o tom adotado neste capítulo (e nos próximos) e o tom dos anteriores. Isso se deve ao fato de a abordagem ter intencionalente mudado: ao invés de revisitarmos tópicos do Ensino Médio de um ponto de vista mais conceitual visando oferecer suporte para as disciplinas Cálculo Diferencial e Integral e Geometria Analítica, faremos uma revisão mais focada em tópicos que já foram abordados nessas disciplinas e serão utilizados intensamente em tópicos vindouros.
+
+Além da mudança no conteúdo, a entensão do capítulo também mudou: agora está mais curto. A intenção é que você possa resolver todas as questões aqui presentes em um único encontro da tutoria e utilize o tempo restante para resolver, com auxílio do tutor, exercícios das listas oficiais das disciplinas sobre o tópico que acabou de estudar.
+
+Por fim, retiramos as questões diagnósticas e a auto-avaliação porque os tópicos que serão tratados aqui são novidade para todos os estudantes e esperamos que todos vocês resolvam o capítulo na íntegra.
+
+%\end{comment}
+\paraTutores
+
+\section{Nota explicativa}
+
+Este capítulo é o primeiro dos três capítulos finais da tutoria. Estes capítulos tem uma proposta diferente dos capítulos anteriores. O motivo dessa mudança está no fato de o conteúdo de Cálculo Diferencial e Integral e Geometria Analítica terem atingido um ponto em que os pré-requisitos são outros tópicos vistos anteriormente nas mesmas disciplinas e não mais tópicos que poderiam ter sido estudados anteriormente no Ensino Médio.
+
+Na verdade, os três capítulos estão focados em tópicos de Cálculo Diferencial e Integral e são bastante específicos (técnicas de integração) e parece-nos mais razoável propor atividades mais focadas no uso específico que será feito de conteúdos como frações algébricas, identidades trigonométricas e regra do produto. Dessa forma, o ritmo mais dialogado e conceitual adotado anteriormente dá lugar a uma ênfase mais explícita nas técnicas mencionadas.
+
+Também houveram mudanças na estrutura do material. São elas:
+
+\begin{itemize}
+ \item \textbf{Não há mais questões diagnósticas}, já que esperamos que os tópicos aqui tratados serão novos para todos os estudantes. Consequentemente, não há mais um quadro de orientação e para o estudante não há mais quadro de auto-avaliação;
+ \item \textbf{A seção Rumo ao Livro-Texto foi removida}. Ao final das questões, sugerimos a leitura de uma seção e alguns exemplos do livro-texto. A intenção é que após essa leitura, os estudantes estejam prontos para resolver questões das listas de exercícios oficiais da disciplina. Pelo mesmo motivo não sugerimos questões adicionais para o tutor;
+ \item \textbf{O capítulo é mais curto} e o tempo restante deve ser usado para auxiliar os estudantes na resolução de questões da lista de exercícios oficial da disciplina.
+\end{itemize}
+
+Um detalhe importante continua igual: dê tempo para que os estudantes resolvam as questões com atenção, leiam os textos e compreendam o que estão fazendo. Apesar das questões mais focadas, a tutoria deve continuar focando em entendimento dos conceitos e não para prática de resolução de exercícios.
+
+VOcê também notará que há menos notas laterais no seu material. Isso se deve ao fato de as questões neste capítulo serem muito mais diretas, ligadas ao conteúdo regular da disciplina e menos conceituais.
+
+\section{Comentários iniciais}
+
+Este capítulo é focado no uso da regra do produto com o objetivo de calcular integrais usando a técnica chamada de integração por partes. Ao longo do texto, tentaremos focar mais na regra do produto em si e não nas integrais, pois isso será feito pelo professor de MA111.
+
+Nosso objetivo aqui não é sistematizar o método através de fórmulas como $\int udv=uv-\int vdu$. Ao contrário, o que queremos é revisar a regra do produto e deixar claro como ela pode ser usada para calcular algumas integrais que envolvem produtos de funções simples.
+
+Será comum ao longo do capítulo a manipulação algébrica de igualdades envolvendo integrais e derivadas. Seus estudantes provavalmente estranharam esse processo, mas isso ocorre simplemesnte pelo fato de as igualdades envolverem integrais e derivadas. As regras para manipulação de igualdades continuam valendo: somar dos dois lados, multiplciar dos dois lados a assim por diante. No final das contas, isso é tudo que precisaremos para este capítulo.
+
+%\end{comment}
+\paraAmbos
+
+\section{Quando usar}
+
+Este capítulo deve ser resolvido logo antes do professor de MA111 abordar integração por partes ou logo que ele iniciar esse tópico.
+
+\section{Conteúdos anteriores}
+
+O conteúdo central desta revisão é a regra do produto para derivação de funções, ou seja, não tem problema começar a resolver as questões se você não estiver tão seguro em relação a esse tópico. Porém, os tópicos abaixo são pré-requisitos para este capítulo:
+
+\begin{itemize}
+ \item Derivada das funções exponenciais, polinomiais, trigonométricas e logarítmicas.
+\end{itemize}
+
+Esses tópicos não serão cobertos durante as atividades de tutoria. Se você acha que não sabe o suficiente sobre algum deles, sugerimos que procure material de apoio antes de começar a resolver as questões deste capítulo.
+
+\newpage
+
+\section{Questões}
+
+A regra do produto foi introduzida como uma técnica para obter a derivada de funções que podem ser vistas como um produto de duas funções mais simples como, por exemplo, $f(x)=x^3.2^x$. Essa função pode ser vista como o produto das funções $g(x)=x^3$ e $h(x)=2^x$, ambas simples de derivar isoladamente.
+
+A regra do produto nos diz que:
+
+\begin{shaded*}
+Seja $f(x)=g(x).h(x)$, então $f'(x)=g'(x).h(x)+g(x).h'(x)$.
+\end{shaded*}
+
+Aplicando ao nosso exemplo, temos que $g'(x)=3x^2$ e $h'(x)=ln(2).2^x$, portanto:
+
+\begin{align*}
+f'(x) &= g'(x).h(x)+g(x).h'(x) \\
+ &= (3x^2) . (2^x) + (x^3) . (ln(2).2^x) \\
+ &= 3x^2.2^x + ln(2).x^3.2^x
+\end{align*}
+
+O objetivo desta lista é relembrar essa técnica e praticar a fluência com ela. Também veremos como utilizá-la para a otenção de integrais que não podem ser calculadas diretamente.
+
+\subsection*{Regra do produto}
+
+Vamos começar praticando a regra do produto.
+
+\notaTutor{O capítulo começa com uma revisão sobre a regra do produto, focada em casos que são normalmente usados como introdução para integração por partes.}
+
+\begin{questao}
+Use a regra do produto para calcular a derivada das seguintes funções.
+\begin{enumerate}[a)]
+\item $f(x)=x . e^x$
+\item $g(x)=x . \cos(x)$
+\item $h(x)=x . \sin(x)$
+\item $i(x)=x. ln(x)$
+\item $j(x)=x^2 . ln(x)$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $f'(x)=e^x+xe^x$, b) $g'(x)=\cos(x)-x\sin(x)$, c) $h'(x)=\sin(x)+x\cos(x)$, d) $i'(x)=ln(x)+1$, e) $i'(x)=2x.ln(x)+x$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Uma integral não elementar}
+
+Na questão anterior bastou aplicar a regra do produto para obtermos a derivada de $f(x)=x . e^x$, que é dada por $f'(x)=e^x+x.e^x$. Será que isso nos ajuda a calcular a integral de $f(x)$, ou seja, $\int x . e^x dx$?
+
+Note primeiro que $\int x . e^x dx$ não pode ser resolvida através de uma troca de variáveis (teríamos que fazer $u=e^x$, o que criaria um logaritmo ao substituirmos $x$). Como claramente se trata de um produto de duas funções que isoladamente são muito simples de derivar e integrar, vamos tentar usar o resultado obtido na item a acima.
+
+Para tanto, note que a segunda parcela de $f'(x)=e^x+x.e^x$ é igual à função que queremos integrar. Portanto, vamos isolar essa parte, obtendo $f'(x)-e^x=x.e^x$ ou, finalmente, $x.e^x=f'(x)-e^x$. Agora, vamos integrar os dois lados da igualdade.
+
+\begin{align*}
+\int x.e^x dx &= \int (f'(x)-e^x) dx && \text{Usando propriedades das integrais}\\
+\int x.e^x dx &= \int f'(x) dx - \int e^x dx && \text{Sabemos que} \int f'(x) dx = f(x)+c_1 \\
+\int x.e^x dx &= f(x)+c_1 - \int e^x dx && \text{Calculando uma das integrais}\\
+\int x.e^x dx &= f(x)+c_1 - e^x+c_2 && \text{Lembre-se de que } f(x)=x . e^x\\
+\int x.e^x dx &= x . e^x+c_1 - e^x+c_2 && \text{Combinando as constantes} \\
+\int x.e^x dx &= x . e^x - e^x+c
+\end{align*}
+
+Na última linha acima obtemos a integral desejada. Em resumo, o que fizemos foi isolar a expressão que queríamos integrar no resultado da aplicação da regra do produto e, depois, integramos os dois lados da igualdade.
+
+\notaTutor{As duas questões a seguir porpõem dois casos bastante simples de integração por partes. Insista que os estudantes leiam e entendam o processo feito logo acima.}
+
+\begin{questao}
+Façamos o mesmo com o resultado do item b da primeira questão para calcular $\int x . \sin(x) dx$.
+\begin{enumerate}[a)]
+\item Isole $x . \sin(x)$ no resultado obtido no item b da primeira questão.
+\item Integre os dois lados da igualdade obtendo $\int x . \sin(x) dx$.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $x\sin(x)=\cos(x)-g'(x)$, b) $\int x\sin(x) dx = \sin(x)-x\cos(x)+c$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\begin{questao}
+Faça o mesmo com o resultado do item c para calcular $\int x . \cos(x) dx$
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\int x\cos(x) dx = \cos(x)+x\sin(x)+c$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Logaritmos}
+
+Você já notou que apesar de ser uma função simples você ainda não calculou a integral de $a(x)=ln(x)$? Isso ocorre porque a técnica que você usou acima é necessária para calcular essa integral.
+
+\begin{questao}
+Use o resultado do item d da primeira questão para calcular $\int ln(x) dx$.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\int ln(x) dx = x.ln(x)-x+c$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Agora que você já praticou esse processo algumas vezes, tente resolver a questão a seguir.
+
+\notaTutor{Dessa vez, o estudante não sabe qual integral irá obter ao final do processo. Esse não costuma ser o caso em exercícios regulares da disciplina, mas pode ajudar a promover a familiaridade com os elementos envolvidos na técnica de integração por partes.}
+
+\begin{questao}
+Use o resultado do item e da primeira questão obter a integral de uma função não elementar.
+\begin{enumerate}[a)]
+\item Qual é essa função?
+\item Qual é a sua integral?
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $f(x)=x.ln(x)$, b) $\int x.ln(x) dx = \frac{x^2 ln(x)}{2}-\frac{x^2}{4}+c$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Um novo caso}
+
+Veja que na questão anterior, começamos aplicando a regra do produto à função $j(x)=x^2 . ln(x)$ e terminamos obtendo a integral de $x.ln(x)$. Na questão 4, começamos aplicando a regra do produto à função $i(x)=x . ln(x)$ e terminamos obtendo a integral de $ln(x)$. Você já deve ter notado um padrão nesses resultados, mas se ainda não, aplique a regra do produto para obter a derivada da função $t(x)=x^3. ln(x)$ e observe as potências dos termos obtidos.
+
+\notaTutor{Uma vez um pouco familiarizdos com o processo, essa questão demanda um pouco de reconhecimento de padrões. O texto logo antes da questão sugere um exemplo mais simples que pode ser resolvido antes caso o estudante não saiba o que fazer. Insista na sugestão caso isso ocorra.}
+
+\begin{questao}
+Obtenha $\int x^5 . ln(x) dx$.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\int x^5.ln(x) dx = \frac{x^6 ln(x)}{6}-\frac{x^6}{36}+c$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Duas vezes}
+
+Em alguns casos, duas regras do produto aplicadas a funções diferentes podem ser combinadas gerando resultado úteis, como acontecerá na questão a seguir.
+
+\notaTutor{Essa última questão é um pouco mais sofisticada por combinar resultados de duas regras do produto diferentes. Mas esperamos que ainda não seja tão complicado a ponto de ofuscar o processo por trás da resolução.}
+
+\begin{questao}
+Vamos tentar obter $\int e^x.\cos(x) dx$.
+\begin{enumerate}[a)]
+\item Comece aplicando a regra do produto à função $f(x)=e^x.\cos(x)$ e integrando os dois lados da igualdade.
+\item Faça o mesmo processo com a função $g(x)=e^x.\sin(x)$.
+\item Note que as duas expressões acima possuem vários termos em comum. Some as duas igualdades e tente isolar os termos de modo a obter uma expressão para $\int e^x.\cos(x) dx$ que não envolva outras integrais.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $e^x.\sin(x)= \int e^x\sin(x)dx + \int e^x\cos(x)dx$, b) $e^x.\cos(x)= \int e^x\cos(x)dx - \int e^x\sin(x)dx$, c) $\int e^x\cos(x)dx = \frac{e^x\cos(x)+e^x\sin(x)}{2}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\section{Mensagem final}
+
+O processo que você utilizou para resolver todas as questões anteriores é a justificativa por trás da técnica de integração conhecida como \textbf{integral por partes} que será discutida pelo seu professor de MA111. Esse processo pode ser condensado através da fórmula mostrada abaixo.
+
+\begin{shaded*}
+$$\int f(x).g'(x)dx = f(x).g(x)-\int f'(x)g(x)dx$$
+\end{shaded*}
+
+Essa fórmula facilita o uso dessa técnica no cálculo de integrais, porém, ela nada mais é do que uma síntese do que fizemos anteriormente: regra do produto, isolamento da parcela que interessa e integração dos dois lados da igualdade.
+
+Nossa sugestão é que agora você leia a seção 7.1 do livro \sugestao{Calculus} até o final do quarto exemplo e então resolva os exercícios da lista oficial de MA111 sobre integração por partes.
+
+Aproveite a disponibilidade do tutor e a introdução feita acima para ter certeza de que você compreende bem o uso dessa técnica. Sugerimos que você priorize o entendimento do processo no lugar da quantidade de questões resolvidas e deixe essa parte para um segundo momento quando estiver estudando depois da tutoria.
+
+%\end{comment}
+\paraTutores
+
+\section{Comentários finais}
+
+A abordagem que usamos ao longo deste capítulo não é a mais prática para uso da técnica de integração por partes. Fórmulas como a que foi apresentada no início do capítulo facilitam a aplicação do método e diminuem a necessidade de ``sacadas'', como a que foi necessária na questão 7. Entretanto, isso será feito pelo professor de MA111.
+
+Quando completarem a lista, sugerimos aos estudantes a leitura da seção e de alguns exemplos referente a essa técnica no livro \sugestao{Calculus}. Em seguida, eles devem resolver questões da lista de exercícios da disciplina. Quando chegarem a este ponto, não exija que os estudantes usem o método que usamos ao longo do capítulo, mas sim o método que o professor da disciplina estiver utilizando.
+
+%\end{comment}
+\paraAmbos
+
+\section{Gabarito}
+
+Confira as respostas para as questões e \textbf{não se esqueça de registrar o seu progresso}.
+
+\imprimeGabarito
+
+%\end{comment}
+\paraAmbos
+
+\end{document}

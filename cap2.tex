@@ -1,0 +1,552 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Potências, equações exponenciais e logaritmos}
+
+%\end{comment}
+\paraAlunos
+
+\section{Apresentação}
+
+As disciplinas Cálculo Diferencial e Integral 1 e 2 têm como objeto central o conceito de função. Todas as definições e propriedades aprendidas ao longo dessas disciplinas visam construir duas transformações muito poderosas que podem ser aplicadas a funções: a derivação e a integração. Essas duas transformações emergiram durante o século XVI e permitiram um avanço enorme da matemática aplicada, impulsionando a revolução industral européia e o desenvolvimento de várias áreas da física, como a mecânica de Newton e o estudo das ondas.
+
+Dentro desse universo, algumas funções ocupam um lugar privilegiado por serem muito simples e versáteis. Obviamente essa simplicidade não significa que elas sejam fáceis para o estudante. A função exponencial é uma dessas funções: simples (para calcular derivadas e integrais) e verśateis (podem ser usada para descrever uma gama enorme de problemas).
+
+O objetivo deste capítulo é justamente revisitar os conteúdos que servem de fundamento para o estudo das funções exponenciais: as propriedades da potênciação, a resolução de equações exponenciais e, finalmente, o logaritmo.
+
+\section{Pré-requisitos e Auto-avaliação inicial}
+
+Os pré-requisitos para este capítulo são:
+\begin{itemize}
+ \item Significado de potenciação;
+ \item Significado de raízes quadradas e enésimas.
+\end{itemize}
+
+Esses tópicos não serão cobertos durante as atividades de tutoria. Se você acha que não sabe o suficiente sobre algum deles, sugerimos que se procure material de apoio antes de começar a resolver as questões desse capítulo.
+
+%\end{comment}
+\paraFolhaAvaliacoes
+
+Antes de começar, indique o quanto você acha que sabe sobre os seguintes itens:
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Propriedades de potências &  &  &  &  \\ 
+ \hline
+ Resolução de equações exponenciais&  &  &  &  \\
+ \hline
+ Propriedades de logaritmos &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+%\end{comment}
+\paraAmbos
+
+\section{Questões diagnósticas}
+
+\begin{diagnostico}
+Escreva as expressões abaixo como uma única potência.
+\begin{enumerate}[a)]
+  \item $2^5 \cdot 2^3$
+  \item $\frac{5^{10}}{5^4}$
+  \item $8(2^{-15} \cdot 4^7)$
+\end{enumerate}
+\end{diagnostico}
+
+%\end{comment}
+\paraTutores
+
+\subsection{Gabarito}
+
+a) $2^8$, b) $5^6$, c) $2^2$.
+
+%\end{comment}
+\paraAmbos
+  
+\begin{diagnostico}
+Resolva as equações dadas abaixo.
+\begin{enumerate}[a)]
+  \item $5^{x-4}=25$
+  \item $6 \cdot 2^{5+2x}=48$
+  \item $\sqrt{3} \cdot 3^{x+3}+1=10$
+\end{enumerate}
+\end{diagnostico}
+
+%\end{comment}
+\paraTutores
+
+\subsection{Gabarito}
+
+a) $x=6$, b) $x=-1$, c) $x=-1.5=-\frac{3}{2}$.
+
+\section{Quadro de orientação}
+
+\begin{center}
+ \begin{tabular}{|c c c |c|} 
+ \hline
+ 1A e 1B e 1C & 2A e 2B & 2C & Onde começar\\
+ \hline
+ C & E & E & Questão 2 \\ 
+ \hline
+ C & C & E & Questão 3 \\ 
+ \hline
+ C & C & C & Questão 7 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+%\end{comment}
+\paraAmbos
+
+\newpage
+
+\section{Questões}
+
+%\end{comment}
+\paraTutores
+
+\subsection{Comentários iniciais}
+
+Neste capítulo, serão trabalhados conteúdos relacionados a equações exponenciais e logaritmos com algumas pitadas de função exponencial. O objetivo é garantir que os estudantes saibam as propriedades básicas desas duas operações. Você notará que os exercícios propostos não exploram encadeamentos muito longos de manipulações algébricas, como questões de vestibulares clássicos, mas sim casos básicos que serão encontrados frequentemente por esses estudantes ao longo de disciplinas de Cálculo.
+
+A ênfase aqui, portanto, não deve ser em resolver uma quantidade enorme de exercícios e praticar à exaustão todas as propriedades, nem de discutir igualdades intrincadas em que manipulações algébricas inusitadas são necessárias. Pelo contrário, a segurança em utilizar as propriedades deve ser o objetivo.
+
+\subsection{Início do conteúdo para o aluno}
+
+%\end{comment}
+\paraAmbos
+
+Lembre-se de checar com seu tutor em qual questão você deve começar.
+
+\subsection*{Primeiras propriedades}
+
+A interpretação de $a^n$ como sendo o produto do número $a$ por ele mesmo $n$ vezes é um pouco limitada, pois só funciona para valores inteiros positivos de $n$, mas nos permite obter e interpretar as propriedades mais básicas da potenciação. Se você não está familiarizado com as propriedades listadas abaixo, sugerimos que leia a seção 1.8 do livro \sugestao{Matemática Básica, volume 1} até a página 70 e então volte para esta questão.
+
+\begin{caixaExemplo}
+\begin{itemize}
+ \item Produto de potências: $a^n \cdot a^m = a^{n+m}$
+ \item Divisão de potências: $\frac{a^n}{a^m} = a^{n-m}$
+ \item Potência de potência: $(a^n)^m = a^{n \cdot m}$
+ \item Elevado a zero: $a^0 = 1$
+ \item Potência negativa: $a^{-n} = \frac{1}{a^n}$
+\end{itemize}
+\end{caixaExemplo}
+
+As propriedades acimas podem ser verificadas rapidamente com exemplos numéricos e demonstradas para o caso de expoentes inteiros positivos. Porém, elas valem para quaisquer expoentes e bases reais, contanto que a base seja positiva.
+
+\begin{questao}
+\notaTutor{Essa questão trata das propriedades mais básicas das potências. Se os estudantes estverem com dificuldade para resolver estes itens, insista que leiam a seção 1.8 do livro \sugestao{Matemática Básica, volume 1}, na qua essas propridades são apesentadas e discutidas. Pode valer a pena pedir aos estudantes que tenham ido bem nas questões diagnósticas para que ajudem os colegas com dificuldade nessa questão.} Utilize as propriedades acima para transformar as expressões abaixo em novas expressões com o menor número de potências possível.
+\begin{enumerate}[a)]
+\item $2^5 \cdot 2^{11} \cdot 2^{-3}$
+\item $\frac{5^3 \cdot 5^5}{5^2}$
+\item $(3 \cdot 3^8)^2$
+\item $(\frac{a^7}{a^2})^{-1}$
+\item $4^3 \cdot 2^5$
+\end{enumerate}
+\end{questao}
+
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $2^{13}$, b) $5^6$, c) $3^{18}$, d)$a^{-5}$, e) $2^{11}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+\subsection*{Erros comuns}
+
+\begin{questao}
+\notaTutor{A intenção dessa questão é reforçar as propriedades básicas através de um tipo diferente de pergunta, que exige um nível de consciência um pouco maior do estudante. Se achar adequado, peça que os estudantes descrevam textualmente onde está o erro ao responderem cada um dos itens.} Todas as resoluções mostradas abaixo contêm algum erro. Indique claramente o erro cometido e simplifique a expressão dada corretamente.
+\begin{enumerate}[a)]
+\item $3^5 \cdot 9^7  \longrightarrow (3 \cdot 9)^{5+7} = 27^{12}$
+\item $(2^3 \cdot 3^5)^2  \longrightarrow 2^3 \cdot 3^{5 \cdot 2} = 2^3 \cdot 3^{10}$
+\item $\frac{5^7}{5^{-3}}  \longrightarrow 5^{7-3}=5^4$
+\item $(a+b)^2 \longrightarrow a^2+b^2$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $3^{19}$, b) $2^6 \cdot 3^{10}$, c) $5^{10}$, d)$a^2+2ab+b^2$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Notação científica}
+
+Notação científica nada mais é do que uma forma de representar números especialmente conveniente quando os números envolvidos são muito grandes ou muito pequenos. Por exemplo, ao invés de escrevermos $3000000$ podemos escrever simplesmente $3 \cdot 10^6$. Note que checar a potência do $10$ na segunda forma é bem mais eficiente do que contar os zeros na primeira. O mesmo pode ser feito com números muito pequenos como $0,000000000002$, que pode ser escrito como $2 \cdot 10^{-12}$. Lembre-se que $10^{-12} = \frac{1}{10^12}$, ou seja, $2 \cdot 10^{-12} = \frac{2}{10^12} = 0,000000000002$.
+
+Como último exemplo, vejamos como representar $0,037$. Poderíamos escrever como $37 \cdot 10^{-3}$, porém, padronizou-se utilizar sempre um número entre 1 e 10 fora da potência, o que não é o caso do 37. Portanto, $0,037$ é comumente rescrito como $3,7 \cdot 10^{-2}$.
+
+Por utilizar potências de $10$ intensamente, notação científica se encaixa bem com o tópico que estamos estudando.
+
+\begin{questao}
+\notaTutor{O objetivo desta questão não é discutir notação científica em detalhes. Acima de tudo, queremos que os estudantes estejam familiarizados com essa notação, que é de fato bastante comum no ensino superior (por isso o item d), e aumentem um pouco a fluência com algumas propriedades de potência.
+
+No item c seria necessário um ``ajuste'' ao valor que multiplica a potência de 10 para que a resposta esteja em notação científica, pois o esperado é que seja obtido $0,4 \cdot 10^{-6}$. Não é necessário ser rigoroso com a notação científica, mas essa oportunidade pode ser interessante para discutir propriedades de potência: $0,4 \cdot 10^{-6} = (4 \cdot 10^{-1}) \cdot 10^{-6} = 4 \cdot 10^{-1} \cdot 10^{-6} = 4 \cdot 10^{-7}$.
+
+No item d, peça aos estudantes que chequem se a descrição dada cobre o que foi feito nos itens a, b e c. Mais uma vez, o rigor é menos importante do que a completude da descrição.} Discuta com seus colegas como simplificar as expressões abaixo envolvendo números dados em notação científica.
+\begin{enumerate}[a)]
+\item $\frac{2,4  \cdot 10^5 \cdot 3  \cdot 10^8}{10^3}$
+\item $\frac{2,8  \cdot 10^{10} \cdot 6,3  \cdot 10^2}{2,1 \cdot 10^{-4}}$
+\item $\frac{1,2  \cdot 10^3}{3 \cdot 10^9}$
+\item A luz viaja a uma velocidade de $3 \cdot 10^8$ m/s e a menor distância da Terra a Júpiter é aproximadamente $6,3 \cdot 10^{11}$ metros. Quanto tempo um pulso de luz leva para percorrer essa distância?
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $7,2 cdot 10^{7}$, b) $8,4 cdot 10^{16}$, c) $4 cdot 10^{-7}$, d) $2,1 cdot 10^{3}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Potências fracionárias}
+
+As propridades vistas acima são facilmente compreensíveis se pensarmos em exponentes inteiros positivos, mas expoentes fracionários também têm uma interpretação simples e muito poderosa. Vejamos o que ocorre com um caso simples: o que poderia significar $a^\frac{1}{2}$? 
+
+Vamos considerar que as propriedades anteriores são válidas para expoentes fracionários. Nesse caso, pra entendermos o significado da expressão acima, poderíamos fazer uma operação de modo a transformar a fração em um número inteiro. Uma opção seria multiplicar $a^\frac{1}{2}$ por $a^\frac{1}{2}$. Assim, poderíamos somar os expoentes, obtendo 1. Para isso, vamos chamar $a^\frac{1}{2}$ de $x$. Agora vejamos:
+
+\begin{align*}
+a^\frac{1}{2} &= x && \text{multiplicando os dois lados por } a^\frac{1}{2} \\
+a^\frac{1}{2} \cdot a^\frac{1}{2} &= a^\frac{1}{2} \cdot x && \text{também podemos usar que } a^\frac{1}{2} = x \\
+a^{\frac{1}{2}+\frac{1}{2}} &= x \cdot x && \text{somando os expoentes}\\
+a^1 &= x^2 && \text{rescrevendo a igualdade}\\
+x^2 &= a && \text{aplicando raiz aos dois lados}\\
+x &= \sqrt{a} && \text{portanto: } a^\frac{1}{2} = \sqrt{a} \\
+\end{align*}
+
+Veja que se admitirmos as propriedades básicas da potenciação no contexto de expoentes fracionários, somos levados à conclusão de que $a^\frac{1}{2} = \sqrt{a}$. Essa propriedade pode ser generalizada para o seguinte:
+
+\begin{caixaExemplo}
+ Potências fracionárias: $a^\frac{n}{m}  = \sqrt[m]{a^n}$, por exemplo: $3^{\frac{2}{5}}=\sqrt[5]{3^2}$
+\end{caixaExemplo}
+
+Essa propriedade conecta raízes a potências e será muito útil quando você estiver calculando derivadas e integrais envolvendo raízes.
+
+\begin{questao}
+\notaTutor{Seguindo a tônica deste capítulo, o objetivo aqui nao é explorar casos super intrincados com diversas raízes, mas saber como usar a propriedade em questão para casos que serão comuns em exercícios de Cálculo.} Use a propriedade anterior para fazer o que se pede em cada item abaixo.
+\begin{enumerate}[a)]
+\item Escreva $\sqrt[3]{(x+1)^2}$ na forma de potência.
+\item Escreva  $a^{\frac{3}{5}}$ na forma de raiz.
+\item Escreva $x^3 \cdot \sqrt{x}$ como uma única potência.
+\item Escreva $\frac{10^2}{\sqrt[3]{10}}$ como uma única raiz.
+\item Escreva $\sqrt{t} \cdot \sqrt[3]{t}$ como uma potência.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $(x+1)^{\frac{2}{3}}$, b) $\sqrt[5]{a^3}$, c) $x^{\frac{7}{2}}$, d) $\sqrt[3]{10^5}$, e) $\sqrt[6]{t^5}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Função exponencial}
+
+Funções exponenciais são funções em que a variável aparece na potência como em $f(x)=2^x$. Essa é uma das funções exponenciais mais simples, mas versões mais sofisticadas como $g(x)=4 \cdot 3^{(2x-1)-5}$ ainda se encaixam nessa mesma família de funções e possuem comportamento muito parecido com $f(x)$.
+
+\begin{questao}
+\notaTutor{O gráfico e as propriedades da função exponencial serão discutidas nas aulas da disciplina de Cálculo. O tópico foi trazido para este material para servir como contexto para um pouco mais de prática com potências e para retomar a notação de funções. Note que neste momento, o que se espera são apenas cálculos envolvendo potências.
+
+O terceiro item tem o intuito de introduzir a transformação $5^{2x+3}=5^3 \cdot (5^2)^x$. Essa transformação é importante para demonstrar algumas das propriedades da derivada de funções exponenciais.} Resolva as questões referentes à função exponencial sugeridas abaixo.
+\begin{enumerate}[a)]
+\item Sendo $f(x)=4^x$, obtenha $f(1)$, $f(2)$, $f(0)$, $f(-1)$ e $f(\frac{1}{2})$.
+\item Sendo $g(x)=4 \cdot 3^{2x-1}-5$, obtenha $g(1)$.
+\item Seja $h(x)=5^{2x+3}$, reescreva a função $h$ de modo que a variável $x$ apareça sozinha no expoente.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $4$, $16$, $1$, $\frac{1}{4}$, $2$, b) $7$, c) $h(x)=125 \cdot 25^x$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+\subsection*{Equações exponenciais}
+
+Assim como a fórmula de Bhaskara para as equações quadráticas, as equações exponenciais possuem uma estratégia para a sua resolução. Essa estratégia consiste, essencialmente, em manipular algebricamente a equação de modo a escrevê-la como uma igualdade de duas potências com a mesma base. No item a abaixo a equação dada já está nesse formato, portanto, só precisamos igualar os expoentes $2x-1=5$. No item b isso não é verdade, mas podemos rescrever $27$ como $3^3$ e então igualar os expoentes.
+
+\begin{questao}
+\notaTutor{Todas as equações acima podem ser resolvidas reduzindo os termos de cada lado da igualdade para potências da mesma base. O quarto item recai em uma equação quadrática e o último envolve somas e multiplicações que devem ser resolvidas antes de se obter uma equação com apenas duas potências na mesma base.} Resolva as equações abaixo.
+\begin{enumerate}[a)]
+\item $2^{2x-1} = 2^5$
+\item $27 = 3^{5x-2}$
+\item $4^{x+1}=8^{3+x}$
+\item $a^{x^2-12}=a^{x}$
+\item $3-5 \cdot 2^{5-3x} = 23$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $x=3$, b) $x=1$, c) $x=-7$, d) $x=4 \text{ou} -3$, e) $x=1$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+
+\subsection*{Mais funções exponenciais}
+
+\begin{questao}
+\notaTutor{Estas questões, diferentemente das anteriores sobre função exponencial, recaem em equações. Todas podem ser resolvidas com técnicas equivalentes às que foram usadas na questão anterior. Note que a resposta do item b deve ser um ponto, ou seja, deve ser na forma $(x;y)$. No último item, pode ser útil usar $1,5=\frac{3}{2}$.} Considere a função exponencial dada por $f(x)=3 \cdot 2^x$.
+\begin{enumerate}[a)]
+\item Obtenha o valor de $x$ para que $f(x)=48$
+\item Determine o ponto em que $f(x)$ corta o eixo Y do plano cartesiano.
+\item Obtenha o valor de $x$ para que $f(x)=1,5$
+\end{enumerate}
+\end{questao}
+
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $x=4$, b) $(0;3)$, c) $x=-1$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Uma nova equação exponencial}
+
+Vamos considerar agora a função $f(x)=10^x$. Suponhamos que queríamos sabor para qual valor de $x$ a função é igual a $50$. Se tentarmos resolver a equação $50=10^x$ chegamos rapidamente a um impasse: $50$ não é uma potência de $10$, portanto, não conseguimos escrever a equação como uma igualdade de potências na mesma base. Se testarmos alguns valor para $x$ notamos que $f(x)=10$ e $f(2)=100$. Já que intuitivamente a função parece ser crescente (sempre que $x$ aumenta, o valor de $f(x)$ aumenta), é de se esperar que o valor de $x_0$ para o qual $f(x_0)=50$ está entre $1$ e $2$.
+
+Com auxílio de uma calculadora, podemos fazer alguns testes. A operação de exponenciação é normalmente indicada pelo símbolo \^ (disponível se posicionarmos o celular na horizontal). Se digitarmos 10 \^ 1.5, obtemos aproximadamente $31.6$. Ou seja, $f(1.5) \approx 31.6$. Isso nos leva a esperar que o valor procurado esteja entre $1.5$ e $2$.
+
+\begin{questao}
+\notaTutor{O objetivo desta questão é preparar o terreno para a introdução dos logaritmos na próxima questão. Nesse momento, queremos que os estudantes notem a possibilidade de encontrar valores não inteiros para potências de modo que satisfaçam certas igualdades.
+
+O botão \^ aparece na maioria das calculadoras de celular se deitarmos a tela.} Use a calculadora do seu celular para obter o valor de $x_0$ que satisfaça os itens abaixo com uma cada depois decimal para a função $f(x)=10^x$.
+\begin{enumerate}[a)]
+\item Obtenha $x_0$ tal que $f(x_0)=50$
+\item Obtenha $x_0$ tal que $f(x_0)=200$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$x_0 \approx 1,7$, b) $x_0 \approx 2,3$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+Considerando o trabalho necessário para resolver os dois itens anteriores você deve etsar se perguntando se não há uma maneira mais direta para resolver uma equação como $50=10^x$; e a resposta felizmente é sim! E o rescurso usado para isso é chamado logaritmo.
+
+\subsection*{Logaritmo}
+
+Para entendê-lo, vamos relembrar a relação entre as operações de multiplicação e divisão: se quisermos resolver a equação $50=10 \cdot x$, basta dividirmos os dois lados da igualdade por $10$.
+
+$$
+50=10 \cdot x \longrightarrow \frac{50}{10}=\frac{10 \cdot x}{10} \longrightarrow 5=x \longrightarrow x=5
+$$
+
+Ou seja, como a incógnita $x$ estava sendo multiplicada por $10$, dividimos os dois lados da equação por $10$. Nesse sentido, dizemos que a divisão é a operação inversa da multiplicação. No caso da nossa equação original $10^x=50$, a incógnita aparece como expoente do $10$ e o logaritmo é definido justamente como a operação inversa da exponenciação.
+
+\begin{caixaExemplo}
+Em termos gerais: $log_a x = b \Leftrightarrow x=a^b$. E eis alguns exemplos:
+
+\begin{itemize}
+ \item $log_{10} 100 = 2$, pois $100=10^2$
+ \item $log_2 8 = 3$, pois $8=2^3$
+ \item $log_7 1 = 0$, pois $1=7^0$
+ \item $log_3 (1/3) = -1$, pois $1/3=3^{-1}$
+ \item $log_{25} 5 = \frac{1}{2}$, pois $5=25^{\frac{1}{2}}=\sqrt{25}$
+\end{itemize}
+\end{caixaExemplo}
+
+Se os exemplos anteriores não sao familiares pra você, peça ajuda ao seu tutor ou colega pois o entendimento destes exemplos é fundamental para todas as próximas questões.
+
+\begin{questao}
+\notaTutor{Note que os itens desta questão são simples. O objetivo é ter certeza de que os estudantes conhecem o conceito de logaritmo. Insista que leiam o texto de introdução à questão e os exemplos. Mesmo assim, talvez seja necessária alguma explicação adicional caso o conceito seja totalmente desconhecido. Você pode usar os exemplos e pequenas variações deles.
+
+Uma opção interessante é pedir aos estudantes que criem novos exemplos com algumas restrições: dada uma base (calcule 3 logaritmos na base 6), dado um resultado (crie 2 logaritmos cujo valor seja igual a 5) ou dado o logaritmando (calcule o log de 64 em duas bases diferentes). Por enquanto, se restrinja a valores inteiros.} Calcule:
+\begin{enumerate}[a)]
+\item $log_4 16$
+\item $log_3 81$
+\item $log_{10} 100000$
+\item $log_2 \frac{1}{2}$
+\item $log_9 3$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $2$, b) $4$, c) $5$, d)$-1$, e) $1/2$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Logaritmo na calculadora}
+
+Você deve ter notado que os itens da questão anterior tratam de casos que não eram problemáticos se fossem parte de uma equação exponencial, pois os números envolvidos podem ser convertidos para a mesma base, ou seja, os itens anteriores não ajudam a resolver a equação $50=10^x$. Para isso, existem dois recursos: a calculadora ou algumas propriedades dos logaritmos. Vamos focar inicialmente na calculadora.
+
+Ao contrário das 4 operações fundamentais que podem ser realizadas com auxílio de ações concretas, como contar nos dedos ou compartilhar elementos igualmente, o logaritmo de um número em uma dada base, se o primeiro não estiver relacionado ao segundo em termos de potências, não pode ser obtido de maneira concreta. Quando os logaritmos foram criados, essa dificuldade era contornada graças a tabelas que literalmente listavam valores de logaritmos a exaustão. Hoje, essas tabelas podem ser trocadas por uma calculadora. No modo científico, as calculadoras de celulares oferecem o botão log, que retorna o logaritmo de um número na base 10 (sempre que a base de um logaritmo estiver omitida, fica-se subentendido que a base é 10).
+
+Se usarmos a calculadora para obter $log 50$, o resultado (com 5 casas decimais) é $1.69897$. Note que se usarmos a calculadora para calcular $10^1.69897$, obteremos aproximadamente $49.99999$ como resposta.
+
+\begin{questao}
+\notaTutor{Antes de introduzir as propriedades de logaritmos achamos interessante introduzir o uso da calculadora (por isso a escolha da base 10), pois o uso que se fazia dos logaritmos no passado era muito semelhante, mas através de tabelas. Mais do que aprender a usar o aplicativo, a nossa intenção é de que os estudantes interajam com a relação entre logaritmos e exponenciais, calculando um através do outro.} Use a calculadora para obter
+\begin{enumerate}[a)]
+\item $log_{10} 200$ (compare com o resultado aproximado que você obteve anteriormente)
+\item $log_{10} 20$
+\item $log_{10} 2$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $2.301$, b) $1.301$, c) $0.301$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Propriedades dos logaritmos}
+
+Você dete ter notado um padrão nas respostas obtidas acima. Esse padrão está relacionado com uma das propriedades dos logaritmos, que podem ser vistas abaixo.
+
+\begin{caixaExemplo}
+\begin{enumerate}
+ \item $log_a (b \cdot c) = log_a b + log_a c)$, por exemplo $log_{10} 20 = log_{10} 2 \cdot 10 = log_{10} 2 + log_{10} 10$
+ \item $log_a (b/c) = log_a b - log_a c)$, por exemplo $log_{10} 5 = log_{10} 10/2 = log_{10} 10 - log_{10} 2$
+ \item $log_a b^n = n \cdot log_a b$, por exemplo $log_{10} 64 = log_{10} 2^6 = 6 \cdot log_{10} 2$
+ \item $log_c b = \frac{log_a b}{log_a c}$, por exemplo $log_2 3 = \frac{log_{10} 3}{log_{10} 2}$
+\end{enumerate}
+\end{caixaExemplo}
+
+Caso você não esteja familiarizado com essas propriedades, sugerimos a leitura da seção \sugestao{Propriedades dos logaritmos} do livro \sugestao{Matemática Básica volume 1} (página 478), especialmente a resolução comentada dos problemas.
+
+\begin{questao}
+\notaTutor{Agora chegamos às propriedades dos logaritmos. Note que não se trata de uma lista longa para prática de cada uma das propriedades. Isso não significa negar a importância da prática visando fluência, mas o público que esperamos atingir com essas atividades são os ingressantes que tenham alguma familiaridade com esses conteúdo e precisam de um apoio para atingir um nível um pouco mais alto de conhecimento e para fazer a transição e conexão para o ensino superior.
+
+Se você concluir que os estudantes precisam de mais ajuda neste ponto, sugerimos a seção \sugestao{Propriedades dos logaritmos} do livro \sugestao{Matemática Básica volume 1} (página 478). Certifique-se de que os estudantes estão lendo as explicações e tentando ativamente compreender os problemas resolvidos (ao invés de apenas lendo as resoluções passivamente).} Note que se soubermos o valor de $log_{10} 2$, podemos obter o valor numérico dos três primeiros exemplos acima. Usando a aproximação $log_{10} 3 \approx 0.48$, obtenha os valores de:
+\begin{enumerate}[a)]
+\item $log_{10} 9$
+\item $log_{10} 30$
+\item $log_{10} 2700$
+\item $log_{10} 0.3$
+\item Use sua calculadora para obter uma aproximação para $log_{10} 5$ e então use a quarta propriedade acima para calcular $log_{3} 5$.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $0,96$, b) $1,48$, c) $3,44$, d)$-0,52$, e) $1,46$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\begin{reflita}
+\notaTutor{Insista que os estudantes respondam a essa questão por escrito e discutam com os colegas. O uso de calculadora para testar outros casos deve ser incentivado. Note que o resultado pode ser estendido para qualquer base (a base 10 foi utilizada apenas por ser mais comum em calculadoras).} Use sua calculadora para obter calcular $10^{log_{10} 2}$ e $10^{log_{10} 3}$. Você consegue generalizar esse resultado e justificar porque ele é verdadeiro?
+\end{reflita}
+
+
+\subsection*{Funções exponenciais e logaritmo}
+
+\begin{questao}
+\notaTutor{Essa última questão reúne todos os tópicos vistos neste capítulo sem trazer nenhuma novidade.} Considere a função $P(t)=2 \cdot 10^t - 5$
+\begin{enumerate}[a)]
+\item Obtenha $P(0)$ e $P(3)$.
+\item Determine $t_0$ de modo que $P(t_0)=15$.
+\item Determine, com ajuda da calculadora, $t_1$ de modo que $P(t_1)=-1$.
+\item Utilize o valor de $log_{10} 2$ que você utilizou no item anterior e as propriedades do logaritmo para calcular $t_2$ de modo que $P(t_2)=27$.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $-3$ e $1995$, b) $t_0=1$, c)$0,3$, d) $1,2$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\newpage
+
+\section{Rumo ao livro-texto}
+
+\notaTutor{As questões dessa seção são aplicações clássicas da função exponencial a problemas de crescimento cuja resolução exige o uso de logaritmos. Não é necessário insistir que os estudantes usem todas as propriedades de logaritmo ao longo da resolução, podendo parte do trabalho ser feito pela calculadora, pois mesmo assim as propriedades mais importantes serão necessárias.} A questão abaixo foi retirada do livro Cálculo, de James Stewart, seção 1.6.
+
+\begin{resolvida}
+\notaTutor{Como você pode ver, no item b o conceito de função inversa é introduzido. Não há necessidade de se preocupar com restrições e questões de domínio neste ponto. O objetivo é que os estudantes compreendam a ideia de função inversa e saibam, em linhas gerais, como proceder para obtê-la.} Se uma população de bactérias começa com 100 bactérias e dobra a cada 3 horas, então o número total de bactérias após $t$ horas é dado por $n= f(t) = 100 \cdot 2^{t/3}$.
+\begin{enumerate}[a)]
+ \item Quando a população alcançará 5000 bactérias?
+ \item Encontre a inversa dessa função.
+\end{enumerate}
+\end{resolvida}
+
+Essa questão mostra uma aplicação bastante comum da função exponencial. A importância dessa função para o Cálculo está justamente no uso que se faz dela para modelar problemas como esse e em algumas propriedades da sua derivada e integral que você estudará em breve.
+
+Para resolver o item a, basta fazer $f(t)=5000$ e resolver a equação resultante, como mostrado abaixo.
+
+\begin{align*}
+f(t) & {} =5000 && \text{usando a expressão de } f(t)\\
+100 \cdot 2^{t/3} & {} = 5000  && \parbox{5.5\gridM}{\raggedright dividindo os dois lados por 100}\\
+2^{t/3} & {} = 50 && \parbox{5.5\gridM}{\raggedright agora aplicamos log na base 2 aos dois lados da igualdade} \\
+log_2 2^{t/3} & {} = log_2 50 && \text{agora aplicamos algumas } \\
+(t/3) \cdot log_2 2 & {} = log_2 (2 \cdot 5^2)  && \text{propriedades como } log_2 2=1\\
+ \frac{t}{3} & = log_2 2 + log_2 5^2 \\
+ & = 1 + 2 \cdot log_2 5 && \text{com auxílio da calculadora} \\
+ & = 1 + 2 \cdot 2,32 \\
+ & = 5,64 && \parbox{5.5\gridM}{\raggedright multiplicando os dois lados por 3}\\
+t & {} = 3 \cdot 5,64 = 16,92 \\
+\end{align*}
+
+No item b um novo conceito é mencionado. Não vamos discuti-lo em profundidade aqui mas vamos entender o seu significado e como operacionalizá-lo. A função inversa (normalmente chamada de $f^{-1}(x)$) de uma função $f(x)$ dada é a função que faz a transformação inversa dela.
+
+Por exemplo, a conversão de uma temperatura em graus celsius para Kelvins pode ser obtida pela seguinte transformação $K=C+273$. Essa fórmula pode ser escrita como uma função: $K(C)=C+273$. Essa função transforma uma temperatura em graus celsius para Kelvins (a indicação nos parênteses reforça qual valor deve ser dado para que se obtenha o valor da função). A inversa dessa função calcularia uma temperatura em celsius dada uma em Kelvins. Para obtê-la, basa isolarmos o $C$, ou seja: $C=K-273$. Usando a notação de função, temos: $C(K)=K-273$.
+
+No caso da nossa questão, devemos isolar o $t$ e obter uma expressão contendo $n$ (é mais conveniente usar simplesmente $n$ ou $f$ ao invés de $f(t)$ para evitar confusão durante as manipulações algébricas). Vejamos:
+
+\begin{align*}
+n & {} = 100 \cdot 2^{t/3} && \text{dividindo os dois lados por 100}\\
+\frac{n}{100} & {} = 2^{t/3} && \text{aplicando log aos dois lados} \\
+log_2 (\frac{n}{100}) & {} = log_2 2^{t/3} && \text{aplicando algumas propriedades} \\
+ & {} = \frac{t}{3} \cdot log_2 2 \\
+ & {} = \frac{t}{3} && \parbox{5.5\gridM}{\raggedright multiplicando os dois lados por 3}\\
+t & {} = 3 \cdot log_2 (\frac{n}{100}) \\
+\end{align*}
+
+Usando a notação de funções, podemos escrever $t(n) = 3 \cdot log_2 (\frac{n}{100})$ e dizer que $t(n)$ é a função inversa de $f(t)$. Também poderíamos usar algumas propriedades de logaritmos pra escrever a expressão final em outros formatos.
+
+A próxima questão, pra você resolver, foi adaptada do livro Cálculo, de James Stewart, seção 1.6.
+
+\begin{resolva}
+Quando o flash de uma câmera é disparado, a bateria imediatamente começa a carregar o capacitor do flash, que armazena energia elétrica de acordo com a equação $Q(t)=Q_0(1-2^{-1.4t})$, com $t$ medido em segundos.
+\begin{enumerate}[a)]
+ \item \notaTutor{Note que no item a não é dado um valor absoluto para a carga. Isso talvez gere aluma estranheza por parte dos estudantes.} Quando tempo é necessário para que $Q$ seja igual a $90\%$ de $Q_0$? Use a calculadora para obter os logs necessários.
+ \item Encontre a inversa da função $Q(t)$.
+\end{enumerate}
+\end{resolva}
+
+\newpage
+
+\section{Gabarito}
+
+Confira as respostas para as questões e \textbf{não se esqueça de registrar o seu progresso}.
+
+\imprimeGabarito
+
+%\end{comment}
+\paraAlunos
+
+\section{Auto-avaliação final}
+Avalie o quanto você acha que sabe sobre os seguintes itens após ter resolvido as questões deste capítulo.
+
+%\end{comment}
+\paraFolhaAvaliacoes
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Propriedades de potências &  &  &  &  \\ 
+ \hline
+ Resolução de equações exponenciais&  &  &  &  \\
+ \hline
+ Propriedades de logaritmos &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+Cheque como foi o seu progresso comparando essas respostas com as que você deu antes de estudar este capítulo. Caso você não tenha atingido o nível ``Bastante''  em algum dos tópicos acima, liste abaixo qual ação concreta você fará nos próximos dias para atingi-lo:
+
+%\end{comment}
+\paraAmbos
+
+\end{document}

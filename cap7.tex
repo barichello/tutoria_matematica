@@ -1,0 +1,472 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+%\end{comment}
+\paraAmbos
+
+\chapter{Transformações em gráficos}
+
+\section{Apresentação}
+
+Uma parte grande do curso de Cálculo se dedica a compreender e analisar o gráfico de uma função através de suas derivadas.
+
+De fato, a primeira e segunda derivadas de uma função oferecem informações que seriam, sem essas ferramentas, difíceis de avaliar com base apenas na expressão algébrica de uma função. Entretanto, algumas características podem ser identificadas sem o uso de derivadas e algumas transformações relativamente simples podem ser usadas para criar novas funções a partir das funções elementares que você já deve conhecer.
+
+O que pretendemos neste capítulo é explorar exatamente essas características e transformações em preparação para as dicussões sobre gráficos de funções que virão em breve envolvendo derivadas.
+
+%\end{comment}
+\paraTutores
+
+\section{Comentários iniciais}
+
+Esse capítulo é inteiramente focado em gráficos. Seu objetivo mais explícito é trabalhar com as três transformações que podem ser realizadas em gráficos de funções através da soma e produto por uma constante. Esse conteúdo é abordado na seção 1.3 do livro \sugestao{Calculus}, ou seja, uma seção que já ficou para trás à bastante tempo. Nossa intenção é que a discussão feita aqui em tópicos que podem ser discutidos durante o Ensino Médio facilite o entendimento de aspectos que serão discutidos na disciplina de Cálculo em breve, quando derivadas forem usadas para auxiliar no esboo de gráficos.
+
+Além disso, o capítulo tem a intenção indireta de reforçar uma habilidade mais básica que pode não ter sido dominada por muitos estudantes: o esboço de gráficos de funções.
+
+Por conta do foco escolhido, esse capítulo tem um número menor de questões, mas espera-se que os estudantes gastem muito mais tempo nos itens que pedem o esboço de um gráfico. Dependendo do ritmo do seu grupo, pode ser que o capítulo não seja completado em dois encontros. Nesse caso, sugerimos que você \textbf{não} aloque mais encontros a ele pois acreditamos que a prática com o esboço de gráficos (mesmo que não tenha sido com todos os gráfico aqui propostos) já será benéfica aos estudantes.
+
+%\end{comment}
+\paraAmbos
+
+\section{Pré-requisitos e Auto-avaliação inicial}
+
+Os pré-requisitos para este capítulo são:
+\begin{itemize}
+ \item Esboço de gráficos de funções elementares.
+\end{itemize}
+
+Esses tópicos não serão cobertos durante as atividades de tutoria. Se você acha que não sabe o suficiente sobre algum deles, sugerimos que procure material de apoio antes de começar a resolver as questões desse capítulo.
+
+%\end{comment}
+\paraFolhaAvaliacoes
+
+Antes de começar, indique o quanto você acha que sabe sobre os seguintes itens:
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Traçar o gráfico de uma função simples &  &  &  &  \\ 
+ \hline
+ Deslocar o gráfico de uma função no plano cartesiano &  &  &  &  \\
+ \hline
+ Obter a expressão algébrica de uma função a partir do seu gráfico &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+%\end{comment}
+\paraAmbos
+
+\section{Questões diagnósticas}
+
+\begin{diagnostico}
+Esboce o gráfico de $p(x)=(x-1)(x+1)(x+3)$.
+\end{diagnostico}
+
+\begin{diagnostico}
+Obtenha a expressão algébrica de uma função seno cuja imagem seja o intervalo $2\leq y \leq 10$ e com período igual a $\pi$.
+\end{diagnostico}
+
+%\end{comment}
+\paraTutores
+
+\section{Gabarito}
+
+\textbf{Questão 1:} Os três detalhes importantes nessa representação gráfica são: as três raízes (-1, 1 e 3), o ponto em que o gráfico corta o eixo Y ($(0,3)$) e o comportamento do gráfico quando $x$ cresce positivamente (gráfico crescente) e quando $x$ cresce negativamente (gráfico decrescente).
+
+\section{Quadro de orientação}
+
+Neste capítulo, o quadro de orientação não é necessário, pois queremos que os estudantes passem por todas as questões. A questão diagnóstica deve ser usada apenas para lhe informar a respeito do ritmo que você deve esperar dos estudantes. Estudantes que tenham acertado a questão diagnóstica não devem ter dificuldade em esboçar gráficos e devem, portanto, avançar muito mais rapidamente ao longo das questões.
+
+%\end{comment}
+\paraAmbos
+
+\newpage
+
+\section{Questões}
+
+Como o foco deste capítulo é traçar o gráfico de funções, você notará que o estilo das questões será um pouco diferente. Progrida sem pressa, traçando todos os gráficos pedidos com atenção. Esse capítulo é uma boa oportunidade para se acostumar com esse tipo de questão.
+
+Esperamos que ao final você terá adquirido uma boa fluência e será capaz de esboçar gráficos com mais confiança.
+
+\subsection*{Gráfico de funções elementares}
+
+Vamos começar este capítulo estabelecendo o gráfico de algumas funções que você já deve conhecer: linear, quadrática, exponencial e trigonométricas.
+
+Se você já está familiarizado com elas, trace-as e depois confira a lista de características dada para se assegurar de que o seu esboço satisfaz as características esperadas.
+
+Se você não está familiarizado, sugerimos que você: 1) monte uma tabela de valores para $x$ e $y$ com diversos pontos, 2) marque esses pontos no eixo cartesiano, 3) quando você estiver convencido sobre o formato do gráfico, trace-o.
+
+Caso esses passos não façam sentido pra você, leia os exemplos 9 e 10 das páginas 302 e 303 do livro \sugestao{Matemática básica - volume 1}.
+
+Por fim, eis algumas recomendações que você pode seguir:
+
+\begin{itemize}
+ \item Marque os pontos e esboce as curvas a lápis para que você possa apagá-las caso erre ou caso queira melhorá-las depois;
+ \item Tente obter pontos em vários quadrantes, ou seja, use valores de $x$ positivos e negativos para montar a sua tabela;
+ \item Escolhe a escala dos eixos $X$ e $Y$ levando em conta os valores obtidos na sua tabela. Não há necessidade de que as escalas sejam iguais;
+ \item Indique pelo menos um valor numérico em cada um dos eixos para que a escala fique clara;
+ \item Preste atenção especial aos pontos em que o gráfico corta o eixo $Y$ (quando $x=0$) e o eixo $X$ (as raízes, ou seja, quando $f(x)=0$).
+\end{itemize}
+
+\newpage
+
+\begin{questao}
+Use os eixos cartesianos dados na próxima página para esboçar o gráfico das funções pedidas abaixo.
+\begin{enumerate}[a)]
+\item $f(x)=x+1$
+\item $g(x)=x^2$
+\item $h(x)=2^x$
+\item $i(x)=\sqrt{x}$
+\item $j(x)=\sin(x)$
+\item $l(x)=\cos(x)$
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Essa primeira questão servirá de base para todo o capítulo. A ideia é que os estudantes obtenham novos gráficos e os comparem com esses. Portanto, é de fundamental importância que os gráficos aqui estejam bem feitos. Por essa razão sugerimos a lista de checagem logo após a questão e várias instruções antes dela. Insista para que ambas sejam seguidas, especialmente se seus estudantes tiverem dificuldade na questão diagnóstica.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+	Questão sem gabarito. Cheque a lista logo após a questão para cobrir características básicas de cada gráfico e pergunte a seu tutor se os esboços estão bons.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Uma vez desenhados os gráficos acima, cheque se os seus esboços satisfazem todas as características abaixo. Caso não, volte e os corrija.
+
+\begin{itemize}
+ \item[$\square$] O gráfico de $f(x)$ deve ser uma reta. Os eixos podem estar na mesma escala e, nesse caso, a reta deve ter inclinação de 45\degree;
+ \item[$\square$] O gráfico de $f(x)$ não deve ser ``curto'', como se fosse um segmento de reta, mas sim longo, cruzando eixos e indo além dos pontos marcados por você, sugerindo uma reta;
+ \item[$\square$] O gráfico de $g(x)$ deve passar pela origem e ser simétrico em relação ao eixo $Y$;
+ \item[$\square$] O gráfico de $g(x)$ deve ficar cada vez mais vertical a medida que os valores de $x$ se afastam de zero, mas não deve ficar de fato vertical;
+ \item[$\square$] O gráfico de $h(x)$ deve se aproximar cada vez mais do eixo $X$ a medida que os valores de $x$ tendem a menos infinito, mas jamais deve cruzá-lo;
+ \item[$\square$] O gráfico de $h(x)$ deve ficar crescer muito rapidamente a medida que os valores de $x$ aumentam, sem jamais ficar vertical;
+ \item[$\square$] O gráfico de $i(x)$ deve estar totalmente no primeiro quadrante;
+ \item[$\square$] O gráfico de $i(x)$ deve ser sempre crescente, mas cada vez mais lentamente (ficando mais horizontal a medida que $x$ cresce);
+ \item[$\square$] O gráfico de $j(x)$ e $l(x)$ deve indicar claramente que as funções variam entre 1 e -1. Isso deve ser feito com indicações claras de valores no eixo $Y$;
+ \item[$\square$] O gráfico de $j(x)$ e $l(x)$ deve indicar claramente que o período das funções é igual a $2\pi$, pu seja, a distância horizontal entre dois máximos consecutivos deve ser igual a $2\pi$. Isso deve ser feito com indicações claras de valores no eixo $X$.
+ \item[$\square$] O gráfico de $j(x)$ deve passar pela origem;
+ \item[$\square$] O gráfico de $l(x)$ deve cortar o eixo $Y$ no ponto $(0;1)$.
+\end{itemize}
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{./img/c7q1.png}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{./img/c7q1.png}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{./img/c7q1.png}
+\end{figure}
+
+\newpage
+
+\subsection*{Falando sobre gráficos}
+
+Existem três conceitos que são muito utilizados para descrever o gráfico de funções ou trechos específicos destes: crescente, decrescente e concavidade.
+
+Esses três conceitos podem ser definidos formalmente e, dada uma função na sua forma algébrica, é possível demonstrar qual deles se aplica ao comportamento da função em um determinado ponto. Porém, aqui faremos uma abordagem mais intuitiva e visual, uma vez que a abordagem formal será feita na disciplina de Cálculo.
+
+Um detalhe importante: ao avaliarmos visualmente o gráfico de uma função devemos ``ler'' o gráfico da esquerda para a direita (valores de $x$ aumentando).
+
+Dizemos que um trecho de um gráfico de uma função é \textbf{crescente} quando os valores de $y$ aumentam a medida que os de $x$ aumentam. Em termos gráficos, o segmento de curva em questão deve estar subindo (se analisarmos da esquerda pra direita). Por exemplo, o gráfico de $i(x)=\sqrt{x}$ é crescente em todo o seu domínio (volte e cheque se você concorda com essa afirmação), enquanto o gráfico de $j(x)=\sin(x)$ é crescente em alguns trechos (como o intervalo em que ele corta o eixo $Y$, de $-\pi/2$ a $\pi/2$) e não em outros.
+
+Um exemplo de trecho \textbf{decrescente} ocorre na função $g(x)=x^2$,  quando $x<0$. Note que a curva nessa parte está descendo (se analisarmos da esquerda pra direita). Mas isso muda assim que a função cruza a origem e ela passa a ser crescente.
+
+\begin{questao}
+Considerando os gráficos traçados anteriormente, faça o que se pede em cada item.
+\begin{enumerate}[a)]
+\item A função $f(x)$ é crescente ou decrescente?
+\item A função $h(x)$ é crescente ou decrescente?
+\item Identifique um trecho em que a função $l(x)=\cos(x)$ é crescente e outro em que ela é decrescente.
+\end{enumerate}
+\end{questao}
+
+\notaTutor{O objetivo da questão e da próxima é introduzir um vocabulário que será muito utilizado em breve pelo professor de MA111. Como enfatizado no texto, não é importante se preocupar com o rigor dos conceitos mas com a interpretação visual deles. Use gestos e exemplos informais para explicar o significado de crescente e decrescente e de concavidade positiva ou negativa.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) crescente, b) $g(x)$ é decrescente para $x<0$ e crescente para $x>0$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+O conceito de \textbf{concavidade} surge ao compararmos o formato das gráficos de $h(x)=2^x$ e $i(x)=\sqrt{x}$. Ambos são crescentes, mas se comportam de maneira diferente: $h(x)$ fica cada vez mais vertical enquanto que $i(x)$ fica cada vez mais horizontal. A diferença entre eles está na concavidade de cada um deles. Diz-se que $h(x)=2^x$ tem concavidade positiva enquanto $i(x)=\sqrt{x}$ tem concavidade negativa.
+
+Para distinguirmos esses dois casos visualmente, podemos traçar pequenas tangentes aos gráficos em alguns pontos. Se todas as tangentes ficarem abaixo do gráfico em um intervalo (como no gráfico à esquerda abaixo) dizemos que ela tem concavidade positiva nesse intervalo. Caso contrário, a concavidade é negativa (como no gráfico à direita abaixo).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{./img/c7q2.png}
+\end{figure}
+
+\begin{questao}
+Considerando os gráficos traçados no começo deste capítulo, faça o que se pede em cada item.
+\begin{enumerate}[a)]
+\item Qual é a concavidade da função $g(x)$? Ela mantém essa mesma concavidade para todo o seu domínio?
+\item Identifique um trecho em que a função $j(x)=\sin(x)$ tem concavidade positiva e outro com concavidade negativa.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) concavidade positiva, b) no intervalo $0x<\pi$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Aviso}
+
+Deste ponto em diante, os gráficos devem ser esboçados no seu caderno. Sugerimos que use \textbf{caneta} para traçar os eixos e \textbf{lápis} para esboçar as curvas obtidas.
+
+Além disso, todas as questões a seguir dependem da comparação de novos gráficos com os gráficos feitos na questão 1. Para facilitar a comparação, sugerimos que você use a \textbf{mesma escala} utilizada para esboçar o gráfico de referência.
+
+Maiss uma vez, não tenha pressa ao resolver as questões a seguir. Se for necessário, faça uma tabela de valores, marque alguns pontos e então esboce o gráfico.
+
+\subsection*{Negativo}
+
+Vamos começar investigando o que ocorre com o gráfico de funções quando introduzimos sinais de negativo em suas expressões. Tecnicamente, o que estamos fazendo é multiplicando a função como um todo ou a variável por $-1$.
+
+\begin{questao}
+Usando como referência o gráfico de $h(x)$:
+\begin{enumerate}[a)]
+\item Esboce o gráfico das funções $a(x)=-(2^x)$ e $b(x)=2^{-x}$?
+\item Como você descreveria o impacto causado pela multiplicação da função como um todo por $-1$ ($a(x)=-(2^x)$)?
+\item Como você descreveria o impacto causado pela multiplicação da variável por $-1$ ($b(x)=2^{-x}$)?
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Essas são as duas primeiras questões em que as funções iniciais são modificadas e o efeito nos seus gráficos são analisados. Incentive que os estudantes usem as suas palavras para descrever os efeitos, mas tente introduzir pouco a pouco termos mais precisos como reflexão em relação aos eixos e translação.
+
+Se seus estudantes ainda precisarem da tabela de valores para esboçar os gráficos, dê tempo para que façam dessa forma. Essa prática é importante e, mesmo que demorada, deve promover habilidades importantes.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		\noindent\textbf{Questão 4:} b) O gráfico foi refletido verticalmente, ou seja, em relação ao eixo $X$, c) O gráfico foi refletido horizontalmente, ou seja, em relação ao eixo $Y$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Soma de constante à função}
+
+\begin{questao}
+Usando como referência o gráfico de $i(x)$:
+\begin{enumerate}[a)]
+\item Esboce o gráfico da função $c(x)=\sqrt{x}+2$.
+\item Descreva o efeito gráfico de somarmos uma constante a uma função dada.
+\item Descreva com suas palavras, sem esboça-lo, como seria o gráfico da função $c(x)=\sqrt{x}-1$ em relação ao gráfico de $i(x)$.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		b) o gráfico da função se desloca verticalmente, c) o gráfico se deslocaria para baixo, passando a assumirmos alguns valores positivos. Seu mínimo seria em $(0;-1)$ e raiz em $(1;0)$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Multiplicação da função por uma constante}
+
+\begin{questao}
+Usando como referência o gráfico de $l(x)$:
+\begin{enumerate}[a)]
+\item Esboce o gráfico da função $d(x)=2\cos(x)$.
+\item Descreva o efeito gráfico de multiplicarmos uma função dada por uma constante.
+\item O que ocorrerá se a constante for positiva, mas menor do que 1?
+\end{enumerate}
+\end{questao}
+
+\notaTutor{O efeito discutido nessa questão, informalmente tratado como um encolhimento ou esticamento, pode ser descrito em termos da imagem da função ou, no caso de funções trigonométricas, de suas amplitudes. Aproveite a oportunidade para utilizar esses conceitos quando interagir com seus estudantes.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		b) O gráfico da função é esticado verticalmente, b) O gráfico será encolhido verticalmente, c) O gráfico será refletido verticalmente e depois encolhido ou esticado, dependendo do módulo da constante.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Mais casos envolvendo somas}
+
+\begin{questao}
+Usando como referência o gráfico de $g(x)$:
+\begin{enumerate}[a)]
+\item Esboce os gráficos das funções $p(x)=x^2+1$ e $q(x)=(x+1)^2$.
+\item Descreva o que aconteceu com o gráfico de $p(x)$.
+\item Descreva o que aconteceu com o gráfico de $q(x)$.
+\item Qual é a diferença do que foi feito com $g(x)$ para obter $p(x)$ e $q(x)$?
+\item Qual transformação deve ser feita na função $e(x)=\sin(x)$ para que o seu gráfico se desloque horizontalmente 2 unidades para a direita?
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Em funções periódicas, como as trigonométricas, o deslocamento horizontal é chamado de mudança de fase.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		b) Foi deslocado uma unidade para cima, c) Foi deslocado uma unidade para a esquerda, c) em $p(x)$ a constante foi soma à função e em $q(x)$ à variável, d) $e(x)=\sin(x-2)$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Outra multiplicação}
+
+\begin{questao}
+Usando como referência o gráfico de $e(x)$:
+\begin{enumerate}[a)]
+\item Esboce os gráficos das funções $t(x)=\sin(2x)$ e $u(x)=\sin(2\pi x)$.
+\item Qual é o período de cada uma das funções?
+\item Como você descreveria o efeito na função seno de multiplicarmos a variável por uma constante?
+\end{enumerate}
+\end{questao}
+
+\notaTutor{O conceito de período é introduzido no enunciado dessa questão. Existe uma fórmula que costumava ser ensinada no Ensino Médio para resolver o item b, mas é importante que ela \textbf{não} seja usada nessa questão. Ao contrário, pode-se argumentar verbalmente algo como: a função seno completa seu ciclo quando $x$ varia de $0$ a $2\pi$ (pense no ciclo trigonométrico). Como $x$ está sendo multiplicado por $2$ (no caso da função $t(x)$), quando ele varia de $0$ até $\pi$, a multiplicação já varia de $0$ a $2\pi$, completando o ciclo ``antes''.
+
+Nossa intenção não é de que os estudantes terminem este capítulo com uma lista de mudanças algébricas e seus efeitos no gráfico. O importante é que eles criem uma sensibilidade em relação a possíveis efeitos que mudanças simples podem causar no gráfico e, paralelamente, se sintam mais confortáveis em esboçar gráficos a partir de expressões algébricas acertando seus principais elementos.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		b) O periodo de $t(x)$ é $\pi$ e o de $u(x)$ é $1$, c) O gráfico da função é encolhido horizontalmente. Se a função for periódica, podemos dizer que o seu período foi alterado.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Finalização}
+
+Nas questões anteriores você pôde visualizar o efeito que quatro transformações algébricas diferentes:
+
+\begin{itemize}
+ \item multiplicar a função por uma constante;
+ \item multiplicar a variável por uma constante;
+ \item somar uma constante à função;
+ \item somar uma constante à variável.
+\end{itemize}
+
+Cada uma dessas transformações algébricas causa um efeito geométrico no gráfico da função. Esses efeitos são mais simples de visualizar em algumas funções específicas, sendo bem difíceis de visualizar em outros casos. 
+
+Poderíamos fazer uma lista dos transformações e seus efeitos para que você decorasse e soubesse identificar rapidamente certas características de certas funções, porém, não é esse o foco deste material. O que pretendemos é que você saiba que transformações algébricas como soma e multiplicação, seja da função como um todo ou da variável, têm efeitos previsíveis no gráfico da função e que esses efeitos são essencialmente de dois tipos:
+
+\begin{itemize}
+ \item deslocamento (vertical ou horizontal);
+ \item encolhimento/esticamento (vertical ou horizontal).
+\end{itemize}
+
+Ter esses efeitos em mente deve facilitar o seu trabalho quando você também utilizar derivadas para esboçar o gráfico de uma função dada.
+
+Na questão a seguir, você deverá esboçar quatro gráficos em um mesmo eixo cartesiano. Muito mais importante do que a precisão e os detalhes dos gráficos, é a possibilidade de compararmos qualitativamente o comportamento geral de um com o outro.
+
+\begin{questao}
+Esboce em um mesmo eixo cartesiano e \textbf{sem utilizar uma tabela de valores} o gráfico das quatro funções abaixo. Sugestão: use 4 cores diferentes.
+\begin{enumerate}[a)]
+\item $j_a (x)=2\sin(x)$
+\item $j_b (x)=\sin(\frac{x}{4})$
+\item $j_c (x)=\sin(x)-1$
+\item $j_d (x)=\sin(x+\pi)$
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Neste ponto do material, é importante que os estudantes tentem esboçar os gráficos sem utilizar tabelas de valores. Se eles não tiverem generalizado os efeitos discutidos, peça que voltem e encontrem as questões em que a mesma mudança algébrica tenha sido feita e analisem o efeito no gráfico. Essa questão sintetiza todo o conteúdo do capítulo, mas não tente transformá-la em uma lista associando cada transformação algébrica com um efeito geométrico, pois o que queremos aqui é criar uma familiaridade mais qualitativa na análise de gráficos de funções.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		\begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\textwidth]{./img/c7g10.jpg}
+        \end{figure}
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+\newpage
+
+\section{Rumo ao livro-texto}
+
+A questão abaixo foi retirada da seção 1.3 do livro \sugestao{Calculus}, de James Stewart. Pode parecer um retrocesso em termos de conteúdo voltar para o primeiro capítulo do livro, mas essa seção está fortemente ligada ao que será discutido no capítulo 4 e ao que discutimos neste capítulo.
+
+\notaTutor{As questões discutida e resolvida deste capítulo lidam com o gráfico de funções sem que haja uma expressão algébrica estabelecida para elas. Trata-se de mais um passo de abstração dentro do conteúdo aqui discutido.}
+
+\begin{resolvida}
+O gráfico de $y=f(x)$ é dado abaixo associe as expressões algébricas abaixo ao outros gráficos dados e dê uma razão para as suas escolhas.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/c7r1.png}
+\end{figure}
+
+\begin{enumerate}[a)]
+\item $y=f(x-4)$
+\item $y=f(x)+3$
+\item $y= \frac{1}{3}f(x)$
+\item $y=-f(x+4)$
+\item $y=2f(x+6)$
+\end{enumerate}
+\end{resolvida}
+
+Nessa questão, a expressão algébrica da função não foi dada, apenas o seu gráfico. Note que o gráfico $f$ está definido apenas no intervalo de $0$ a $3$. Algumas outras conclusões podem ser tiradas facilmente do gráfico, como $f(0)=1$, $f(3)=0$ e o valor máximo da função é $3$.
+
+Para começarmos a identificar qual dos demais gráficos se referem a cada uma das transformações dadas, vamos começar com os gráficos mais parecidos com o de $f$. Na minha opinião, \textit{1} e \textit{3} são os mais simples, pois ambos parecem ter exatamente o mesmo formato e estarem apenas deslocados horizontalmente ou verticalmente. Começando por \textit{1}, os valores da função parecem ser exatamente $3$ unidades maiores do que $f$, ou seja, teríamos que somar $3$ à função, ou seja, o gráfico \textit{1} corresponde à expressão \textit{b}.
+
+Por outro lado, o gráfico \textit{3} foi deslocado $4$ unidades para a direita, o que é compatível com a expressão \textit{a}.
+
+O gráfico \textit{4} parece não ter sido deslocado, apenas ``achatado''. Note que o máximo da função passou a ser $1$ ao invés de $3$. Esse efeito é alcançado ao dividirmos a função por $3$, o que é compatível com a expressão \textit{c}.
+
+Nos restam os gráficos \textit{5} e \textit{2}. Note que o gráfico \textit{5} está refletido, além de ter sido deslocado. Sabemos que um gráfico é refletido verticalmente quando a função como um todo é multiplicada por $-1$, e isso é compativel com a expressão \textit{d}.
+
+Portanto, o gráfico \textit{2} deve vir da expressão \textit{e}. Isso é coerente, pois esse gráfico foi claramente ``esticado'' verticalmente, o que é compatível com a expressão \textit{e}.
+
+Agora, resolva a questão a seguir, retirada da mesma seção do livro \sugestao{Calculus}.
+
+\begin{resolva}
+O gráfico de $f$ é dado abaixo. Esboce o gráfico das seguintes funções:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{./img/c7r2.png}
+\end{figure}
+
+\begin{enumerate}[a)]
+\item $y=f(x+4)$
+\item $y=f(x)+4$
+\item $y=2f(x)$
+\item $y= -\frac{1}{2}f(x)+3$
+\end{enumerate}
+\end{resolva}
+
+\section{Gabarito}
+
+Confira as respostas para as questões e \textbf{não se esqueça de registrar o seu progresso}.
+
+Questões sobre esboço de gráficos não terão gabarito, com exceção da questão 10.
+
+\imprimeGabarito
+
+%\end{comment}
+\paraAlunos
+
+\section{Registro de progresso}
+
+Essa parte por enquanto fica com conteúdo vazio até que seja decidido como será feito o controle do progresso.
+
+\section{Auto-avaliação final}
+Avalie o quanto você acha que sabe sobre os seguintes itens após ter resolvido as questões deste capítulo.
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Traçar o gráfico de uma função simples &  &  &  &  \\ 
+ \hline
+ Deslocar o gráfico de uma função no plano cartesiano &  &  &  &  \\
+ \hline
+ Obter a expressão algébrica de uma função a partir do seu gráfico &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+Cheque como foi o seu progresso comparando essas respostas com as que você deu antes de estudar este capítulo. Caso você não tenha atingido o nível ``Bastante''  em algum dos tópicos acima, liste abaixo qual ação concreta você fará nos próximos dias para atingi-lo:
+
+%\end{comment}
+\paraAmbos
+
+\end{document}

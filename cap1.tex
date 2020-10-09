@@ -1,0 +1,573 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+%\end{comment}
+\paraAmbos
+
+\chapter{Matrizes 2x2}
+
+\section{Apresentação}
+
+Matrizes são o objeto central de duas disciplinas fundamentais para quase todos os cursos de exatas no Ensino Superior, Geometria Analítica e Álgebra Linear, além de ferramenta imprescindível para diversas aplicações simples e avançadas nas mais diversas áreas.
+
+O objetivo deste capítulo é revisitar as principais propriedades de matrizes focando em matrizes pequenas, de tamanho 2x2. Apesar de se tratar de um caso específico, as matrizes 2x2 permitem a exploração de quase todas as propriedades e operações que são estudadas nas duas disciplinas mencionadas acima e trazem duas outras facilidades: reduzem o volume de cálculos e manipulações algébricas envolvidos na resolução das questões e permitem a visualização geométrica de certos cenários. A intenção por trás deste capítulo é, portanto, usar essas vantagens para preparar o terreno para o trabalho com matrizes de dimensões maiores em Geometria Analítica.
+
+Você raramente encontrará matrizes 2x2 nos livros-texto, mas caso você esteja com dificuldade para resolver algum exercício pode valer a pena pensar no caso 2x2 e depois tentar expandi-lo para a questão original.
+
+
+\section{Pré-requisitos e Auto-avaliação inicial}
+
+Os pré-requisitos para este capítulo são:
+\begin{itemize}
+ \item O conceito de matrizes;
+ \item Operações básicas com matrizes.
+\end{itemize}
+
+Esses tópicos não serão cobertos durante as atividades de tutoria. Se você acha que não sabe o suficiente sobre algum deles, sugerimos que se procure material de apoio antes de começar a resolver as questões desse capítulo.
+
+%\end{comment}
+\paraFolhaAvaliacoes
+
+Antes de começar, indique o quanto você acha que sabe sobre os seguintes itens:
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Soma e subtração de matrizes &  &  &  &  \\ 
+ \hline
+ Multiplicação de matrizes &  &  &  &  \\
+ \hline
+ Determinantes de matrizes 2x2 &  &  &  &  \\
+ \hline
+ Obter matrizes inversas &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+%\end{comment}
+\paraAmbos
+
+\section{Questões diagnósticas}
+
+\begin{diagnostico}
+\notaTutor{Acertar o terceiro item permite um salto substancial nas questões desse capítulo, por isso os valores números envolvidos não são simples. Portanto, seja rigoroso até mesmo com aspectos aritméticos da resolução neste item. Entretanto, erros dessa natureza nos demais itens podem ser relevados se lhe parecer coerente com as demais resoluções.}Seja $A=\begin{pmatrix}2 & 5 \\ 1 & 6\end{pmatrix}$ e $B=\begin{pmatrix}-2 & 4 \\ 3 & 5\end{pmatrix}$, calcule:
+\begin{enumerate}[a)]
+  \item $3A-B$
+  
+  \item $AB$ (multiplicação da matriz $A$ pela matriz $B$)
+
+  \item $A^{-1}$
+  
+  \item $det(A)$.
+\end{enumerate}
+\end{diagnostico}
+
+%\end{comment}
+\paraTutores
+\subsection{Gabarito}
+
+a) $\begin{pmatrix}8 & 11 \\ 0 & 12\end{pmatrix}$, b) $\begin{pmatrix}11 & 33 \\ 16 & 34\end{pmatrix}$, c) $\begin{pmatrix}6/7 & -5/7 \\ -1/7 & -2/7\end{pmatrix}$, d) $7$.
+
+\section{Quadro de orientação}
+
+\begin{center}
+ \begin{tabular}{|c c c c |c|} 
+ \hline
+ 1A & 1B & 1C & 1D & Onde começar\\
+ \hline
+ C & E & E & E & Questão 2 \\ 
+ \hline
+ C & C & E & E & Questão 3 \\ 
+ \hline
+ C & C & C & E & Questão 7 \\ 
+ \hline
+ C & C & C & C & Questão 8 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+%\end{comment}
+\paraTutores
+
+\subsection{Comentários iniciais}
+
+Nesta seção, serão trabalhados conteúdos de matrizes utilizando apenas matrizes $2x2$. Essa escolha visa reduzir o volume de manipulações algébricas e cálculos aritméticos e focar nos conceitos e procedimentos centrais. São eles:
+
+\begin{itemize}
+ \item Operações: soma, multiplicação por escalar e multiplicação de matrizes;
+ \item Igualdade de matrizes;
+ \item Matriz inversa: obtenção e significado;
+ \item Cálculo de determinante e propriedades relacionadas a matriz inversa e sistemas lineares;
+ \item Sistemas lineares $2x2$: resolução;
+ \item Sistemas lineares $2x2$: notação matricial;
+\end{itemize}
+
+É muito importante tentar separar dificuldades relacionadas a manipulações algébricas e cálculos aritméticos de dificuldades conceituais ou de entendimento do procedimento em si (como o de multiplicação de matrizes). Fique atento a isso e tente deixar claro aos estudantes que qual tipo de dificuldade eles estão enfrentando.
+
+%\end{comment}
+\paraAmbos
+
+\section{Questões}
+
+Lembre-se de checar com seu tutor em que questão você deve começar.
+
+\subsection*{Primeiras operações}
+
+Os exemplos a seguir ilustram duas operações envolvendo matrizes, a soma e a multiplicação por um número real.
+
+\begin{caixaExemplo}
+	Exemplo de soma de matrizes:
+
+  $$\begin{pmatrix} 2 && 1 \\ -3 && 5 \end{pmatrix} + \begin{pmatrix} 4 && 10 \\ 5 && -1 \end{pmatrix} = \begin{pmatrix} 6 && 11 \\ 2 && 4  \end{pmatrix}$$
+\end{caixaExemplo} 	
+
+\begin{caixaExemplo}
+	Exemplo de multiplicação por escalar:
+ 
+ $$3 \begin{pmatrix} 1 && \sqrt{2} \\ 3 && -4 \end{pmatrix} = \begin{pmatrix} 3 \cdot 1 && 3 \cdot \sqrt{2} \\ 3 \cdot 3 && 3 \cdot -4 \end{pmatrix} = \begin{pmatrix} 3 && 3 \sqrt{2} \\ 9 && -12 \end{pmatrix}$$
+\end{caixaExemplo}
+
+Use esses exemplos como referência para a resoluão da questão a seguir.
+
+\begin{questao}
+Considerando as matrizes $A=\begin{pmatrix} 2 && 1 \\ -3 && 0 \end{pmatrix}$, $B=\begin{pmatrix} 3 && 5 \\ -2 && -1 \end{pmatrix}$ e $C=\begin{pmatrix} 5 && -1 \\ 1 && -2 \end{pmatrix}$, realize as operações indicadas abaixo.
+\begin{enumerate}[a)]
+\item $A+B$
+\item $C-B$
+\item $5C+A$
+\item $3B+\begin{pmatrix} 5 && 0 \\ \frac{2}{3} && -1 \end{pmatrix}$
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Note que o item d traz uma fração como elemento de uma das matrizes. Embora esse tópico nao seja coberto no material da tutoria, talvez alguns estudantes precisem de ajudar neste ponto. A soma pode ser resolvida igualando-se os denominadores: $-6+\frac{2}{3}=-\frac{6}{1}+\frac{2}{3}=-\frac{18}{3}+\frac{2}{3}=-\frac{16}{3}$.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\begin{pmatrix} 5 & 6 \\ -5 & 1\end{pmatrix}$, b) $\begin{pmatrix} 2 & -6 \\ 3 & -1\end{pmatrix}$, c) $\begin{pmatrix} 27 & -4 \\ 2 & -10\end{pmatrix}$, d) $\begin{pmatrix} 14 & 15 \\ -16/3 & -4\end{pmatrix}$.
+	%AQUI VAI O GABARITO
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+
+\subsection*{Multiplicação de matrizes}
+
+Na questão anterior você realizou somas de matrizes e multiplicação por um número real e ambas as operações são feitas de maneira bastante direta: somamos (ou subtraímos) os elementos das matrizes um a um e multiplicamos os elementos da matriz pelo escalar dado. Na próxima questão, introduziremos a multiplicação entre matrizes (às vezes denotada $A \times B$, $A \cdot B$ ou simplesmente $AB$).
+
+Essa operação tem duas diferenças importantes. Primeiro, o procedimento para executá-lo (mostrado abaixo) é um pouco mais longo do que os anteriores. Segundo, nem todas as propriedades da multiplicação de números reais vale para a multiplicação de matrizes.
+
+\begin{caixaExemplo}
+ \noindent  Exemplo de multiplicação de matrizes:
+ $$ \begin{pmatrix} 6 && 4 \\ 5 && -3 \end{pmatrix} \begin{pmatrix} 9 && 2 \\ 7 && 1  \end{pmatrix} = \begin{pmatrix} 6 \cdot 9 + 4 \cdot 7 &&  6 \cdot2 + 4 \cdot 1 \\ 5 \cdot 9 + (-3) \cdot 7 && 5 \cdot 2 + (-3) \cdot 1 \end{pmatrix} = \begin{pmatrix} 82 &&  16 \\ 24 && 7 \end{pmatrix}$$
+\end{caixaExemplo}
+
+Se a leitura do exemplo acima não o fez lembrar como multiplicar matrizes ou se você nunca estudou esse tópico, leia a seção 1.3.6 do livro \sugestao{Álgebra Linear} antes de resolver a questão abaixo.
+
+\begin{questao}
+\notaTutor{Frações foram evitadas nessa questão para deixar o foco no procedimento de multiplicação, que é mais intrincado que o da soma e multiplicação por escalar. Os itens b e c exploram a questão da não comutatividade da multiplicação entre matrizes. O texto logo após a questão trata desse aspecto.
+
+Note que o item d pede $F \times D$ e não $D \times F$ (ordem diferente da que as matrizes são apresentadas no enunciado).}Considerando as matrizes $D=\begin{pmatrix} 2 && 3 \\ 4 && 5 \end{pmatrix}$, $E=\begin{pmatrix} 7 && 8 \\ 9 && 10 \end{pmatrix}$ e $F=\begin{pmatrix} -2 && 1 \\ 0 && -3 \end{pmatrix}$, realize as operações indicadas abaixo.
+\begin{enumerate}[a)]
+\item $DE$
+\item $EF$
+\item $FE$
+\item $FD$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\begin{pmatrix} 41 & 46 \\ 73 & 82\end{pmatrix}$, b) $\begin{pmatrix} -14 & -17 \\ -18 & -21\end{pmatrix}$, c) $\begin{pmatrix} -5 & -6 \\ -27 & -30\end{pmatrix}$, d) $\begin{pmatrix} 0 & -1 \\ -12 & -15\end{pmatrix}$.
+
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Observe que os resultados obtidos nos itens b e c da questão anterior são diferentes. Esse caso ilustra uma propriedade importante da multiplicação de matrizes. Ao contrário dos números reais, onde $a \times b = b \times a$ para quaisquer valores de $a$ e $b$, no universo das matrizes isso nem sempre é verdade. Para alguns casos isso pode ocorrer (você verá um caso desses no final deste capítulo), mas não se trata de uma regra geral. Por isso, \textbf{a ordem das matrizes ao executar uma multiplicação é importante}.
+
+\subsection*{Propriedades da multiplicação de matrizes}
+
+\begin{questao}
+\notaTutor{Nesta questão a ordem em que as operações devem ser executadas é fundamental, não apenas a ordem das matrizes ao serem multiplicadas. No item c a propriedade distributiva pode ser utilizada, ou seja $F \times (E-A) = F \times E- F \times A$. Note que a matriz $F$ deve multiplicar $E$ e $A$ pela esquerda (pois multiplicava o parênteses pela esquerda). Entretanto, fazer a sutração primeiro é o caminho mais simples por diminuir o número de multiplicação que precisam ser realizadas.}Usando as matrizes definidas nas duas questões anteriores, realize os cálculos indicados abaixo.
+\begin{enumerate}[a)]
+\item $A^2$, lembre-se de que $A^2=A \times A$.
+\item $B \times C - D^2$
+\item $F \times (E-A)$ 
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\begin{pmatrix} 1 & 2 \\ -6 & -3\end{pmatrix}$, b) $\begin{pmatrix} 4 & -34 \\ -39 & -33\end{pmatrix}$, c) $\begin{pmatrix} 2 & -4 \\ -36 & -30\end{pmatrix}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+O item c dessa questão pode ser resolvido de duas maneiras: primeiro realizar a soma dentro dos parênteses ou então usar a propriedade distributiva: $F \times (E-A) = F \times E - F \times A$. Note que caso você opte pelo segundo caminho, a matriz $F$ está multiplicando o parênteses pela esquerda, portanto, deve multiplicar as matrizes $E$ e $A$ também pela esquerda.
+
+\subsection*{Igualdade}
+
+Assim como com números reais, também é possível criar equações com matrizes, e para resolvê-las  é necessário saber o significado da igualdade quando os elementos envolvidos são matrizes. Essencialmente, se duas matrizes são iguais, os termos que ocupam as mesmas posições em cada uma das matrizes devem ser iguais.
+
+\begin{questao}
+\notaTutor{Nesse momento, as igualdades envolvendo apenas elementos das matrizes e não as matrizes como um todo. No item a, temos 3 equações (note que o primeiro elemento das duas matrizes é igual) em crescente ordem de dificuldade do ponto de vista das equações envolvidas. No item b, há uma única equação, mas para resolvê-la é necessário operar um pouco com as matrizes. Pode valer a pena mencionar com os estudantes a possibilidade de fcar exclusivamente no elemento (1,2) da matriz, já que apenas ele contem uma incógnita.}Determine o valor das incógnitas em cada uma das equações abaixo.
+\begin{enumerate}[a)]
+\item $\begin{pmatrix} 2 && x \\ 3y-1 && 0 \end{pmatrix} = \begin{pmatrix} 2 && 3 \\ 7 && z^2-25 \end{pmatrix}$
+\item $ 3 \begin{pmatrix} -1 && t \\ 0 && 3 \end{pmatrix} + \begin{pmatrix} 4 && 2 \\ \frac{1}{2} && 0,6 \end{pmatrix} = \begin{pmatrix} 1 && 8 \\ \frac{1}{2} && 9,6 \end{pmatrix} $
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $x=3$ e $y=8/3$ e $z= \pm 5$, b) $t=2$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Igualdade, parte 2}
+
+Nos casos anteriores, as incógnitas eram elementos de algumas das matrizes envolvidas. Em certas situações a incógnita pode ser a matriz completa. Nesse caso, pode ser útil usar uma matriz genérica, como $\begin{pmatrix} a && b \\ c && d \end{pmatrix}$, no tamanho adequado e determinar o valor de cada uma de suas entradas. Use essa estratégia na próxima questão.
+
+\begin{questao}
+\notaTutor{Agora as igualdades envolvem matrizes inteiras, de modo que todos os seus elementos devem ser obtidos. Não se preocupe com a notação $m_{i,j}$ nesse momento, ela será introduzida mais adiante. Diferentemente da questão anterior, as equações precisam ser resolvidas em sistemas (ainda que bastante simples) e não isoladamente.}Determine as matrizes $M$ e $N$ que satisfazem as igualdades a seguir.
+\begin{enumerate}[a)]
+\item $ \begin{pmatrix} 1 && 0 \\ 2 && 1 \end{pmatrix} \times M = \begin{pmatrix} 2 && -3 \\ \frac{1}{2} && 4 \end{pmatrix} $
+\item $ \begin{pmatrix} 1 && 2 \\ 0 && 2 \end{pmatrix} \times N = \begin{pmatrix} 1 && 0 \\ 0 && 1 \end{pmatrix} $ 
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\begin{pmatrix} 2 & -3 \\ -7/2 & 10\end{pmatrix}$, b) $\begin{pmatrix} 1 & -1 \\ 0 & 1/2\end{pmatrix}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Matriz inversa}
+
+No item b da questão anterior, a matriz à direita do sinal de igual é chamada de \textbf{matriz identidade} (os elementos da diagonal principal são iguais a um e os demais são todos iguais a zero), ou simplesmente $I$. Quando uma matriz qualquer é multiplicada por $I$, o resultado é igual à matriz inicial, ou seja, essa matriz se comporta como o número 1 entre os números reais ($a \times 1 = a$). Em contextos mais gerais, esse tipo de elemento é chamado de \textbf{elemento neutro da operação}.
+
+Além disso, a matriz $N$, que você obteve como resposta do item b, é chamada de {\em inversa} da matriz $ \begin{pmatrix} 1 && 2 \\ 0 && 2 \end{pmatrix}$, pois $\begin{pmatrix} 1 && 2 \\ 0 && 2 \end{pmatrix} \times N$ é igual a $I$, o "1 das matrizes".
+
+Note que essa definição de inversa é similar ao inverso de um número real: o inverso de 3 é $\frac{1}{3}$, pois $3 \times \frac{1}{3} = 1$. Em termos gerais, a matriz inversa de uma matriz dada $A$ é denotada por $A^{-1}$ e escreve-se que $AA^{-1}=I$.
+
+Matrizes inversas serão muito usadas ao longo das disciplinas de Geometria Analítica e Álgebra Linear, portanto, é importante que você saiba como obtê-las.
+
+Por exemplo, se quisermos obter a matriz inversa $A^{-1}$ da matriz $A=\begin{pmatrix} 2 && 1 \\ 4 && 3 \end{pmatrix}$, devemos resolver a seguinte igualdade:
+
+
+\begin{equation*}
+ A \times A^{-1}=I \longrightarrow \begin{pmatrix} 2 && 1 \\ 4 && 3 \end{pmatrix} \begin{pmatrix} a && b \\ c && d \end{pmatrix} = \begin{pmatrix} 1 && 0 \\ 0 && 1 \end{pmatrix}
+\end{equation*}
+
+\begin{reflita}
+\notaTutor{Essa é a primeira vez que uma pergunta do tipo Reflita é proposta aos estudantes. A intenção é praticar  meta-cognição, ou seja, a capacidade de conscientemente planejar, monitorar e avaliar as ações para a resolução de uma questão. Não é necessário cobrar um texto perfeito, descrições esquemáticas devem ser aceitas e até mesmo incentivadas. Porém, é importante que a descrição seja o mais completa possível em termos das etapas para resolução da questão. Esperamos que essas questões tragam à tona aspectos matemáticos que até então estavam ocultos.}Antes de resolver a questão abaixo, descreva textualmente como você deve proceder para terminar de resolver o exemplo logo acima. Tente cobrir todos os passos do processo, do início até a obtenção da solução.
+\end{reflita}
+
+%\end{comment}
+\paraTutores
+
+\clearpage
+
+%\end{comment}
+\paraAmbos
+
+\begin{questao}
+\notaTutor{Os cálculos nesta questão vão começar a ficar longos e envolver frações. Portanto, é esperado que os estudantes cometam erros procedimentais. Obviamente é importante corrigir estes erros, mas certifique-se de que os estudantes entenderam os aspectos conceituais por trás dessa questão.
+
+\begin{itemize}
+ \item Como obter a matriz inversa $M^{-1}$ de uma matriz dada $M$: resolvendo as equações resultantes da igualdade $M \times M^{-1} = I$;
+ \item Essa igualdade normalmente leva a sistemas de equações e não equações isoladas.
+\end{itemize}
+}Determine, se possível, a matriz inversa da:
+\begin{enumerate}[a)]
+\item matriz $A$ usada no exemplo logo acima.
+\item matriz $D$ da questão 2.
+\item da matriz $ \begin{pmatrix} 2 && -1 \\ -6 && 3 \end{pmatrix}$.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\begin{pmatrix} 3/2 & -1/2 \\ -2 & 1\end{pmatrix}$, b) $\begin{pmatrix} -5/2 & 3/2 \\ 2 & -1\end{pmatrix}$, c) o sistema não tem solução.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Como você deve ter notado no item c acima, \textbf{nem toda matriz tem uma inversa}. Entre os números reais, isso ocorre apenas com o número 0, mas entre as matrizes várias não possuem inversa. Isso não é um problema, mas diz muito sobre a matriz em questão. Veremos mais adiante como identificar quais matrizes possuem ou não uma inversa.
+
+\subsection*{Determinante}
+
+Determinante é uma operação que associa toda matriz quadrada a um número real. Durante o Ensino Médio, pouco se discute o significado dessa operação e o foco recai quase que totalmente no procedimento para o cálculo do determinante de certas matrizes quadradas. Em Geometria Analítica e Álgebra Linear o significado do determinante será mais importante, mas para compreendê-lo é necessário dominar o procedimento.
+
+\begin{caixaExemplo}
+	Exemplo de cálculo do determinante de uma matriz:
+	$$ Det \begin{pmatrix} 2 && 3 \\ 4 && 5 \end{pmatrix} = (2 \cdot 5) - (3 \cdot 4) = 10-12=-2$$
+\end{caixaExemplo}
+
+Se você nunca calculou o determinante de uma matriz $2x2$, peça ao seu tutor ou a um colega que lhe explique o procedimento exemplificado acima. Por enquanto, é necessário apenas saber como calculá-lo, pois o seu significado será discutido nas questões que virão.
+
+\begin{questao}
+\notaTutor{Nenhuma surpresa nessa questão. Não há necessidade de abordar determinante de matrizes maiores nesse momento (talvez mencionar que este procedimento é um caso particular para matrizes $2x2$). 
+
+Entretanto, o texto logo após a questão trata um pouco sobre as diferenças entre uma descrição informal de um resultado matemático e um teorema. Certifique-se de que os estudantes leram o texto, mas a intenção agora não é promover grandes discussões, apenas criar familiaridade.}Calcule o determinante das seguinte matrizes.
+\begin{enumerate}[a)]
+\item matriz $A$ da questão 1.
+\item matriz $E$ da questão 2.
+\item $\begin{pmatrix} \frac{1}{3} && 1 \\ \frac{1}{2} && 2 \end{pmatrix}$
+\item matriz do item c da questão anterior.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $3$, b) $-2$, c) $\frac{1}{6}$, d) $0$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Note que a única matriz com determinante igual a zero foi a matriz que vimos anteriormente não possuir inversa. Isso não é uma coincidência, mas uma das propriedades mais importantes do determinante. Essa propriedade pode ser descrita informalmente da seguinte maneira: toda matriz com determinante diferente de zero tem inversa e toda matriz com determinante igual a zero não tem inversa. Usando linguagem matemática mais formal, esse resultado seria descrito da seguinte maneira.
+
+\begin{teorema}
+ Uma matriz quadrada é invertível se, e somente se, seu determinante é diferente de zero.
+\end{teorema}
+
+A expressão ``se, e somente se'' é bastante comum em textos matemáticos formais e significa (usando esse caso como exemplo) que:
+
+\begin{enumerate}
+ \item Se sabemos que uma matriz é invertível, podemos concluir que seu determinante é diferente de zero, e
+ \item Se sabemos que uma matriz tem determinante diferente de zero, podemos concluir que ela é invertível.
+\end{enumerate}
+
+Esse resultado também pode ser descrito em termos das matrizes com determinante igual a zero:
+
+\begin{enumerate}
+ \item Se sabemos que uma matriz tem determinante igual a zero, podemos concluir que ela não é invertível, e
+ \item Se sabemos que uma matriz não é invertível, podemos concluir que seu determinante é igual a zero.
+\end{enumerate}
+
+\subsection*{Determinantes e matrizes inversas}
+
+\begin{questao}
+\notaTutor{Mais uma vez, não há nenuma surpresa nessa questão. Incentive os estudantes a comparar os resultados obtidos no item c tendo a seguinte conclusão em mente: o determinante é igual a 0 apenas se $m=6$.}Considere a matriz $M=\begin{pmatrix}1 & 2 \\ 3 & m\end{pmatrix}$.
+\begin{enumerate}[a)]
+\item Qual deve ser o valor de $m$ para que o determinante dessa matriz seja igual a 0?
+\item Tente obter a matriz $M^{-1}$ para o valor de $m$ obtido no item anterior.
+\item Escolha um valor para $m$ que seja diferente do obtido no item a e obtenha $M^{-1}$ para esse valor.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $m=6$, c) se $m=1$ então a matriz inversa será $\begin{pmatrix} -1/5 & 2/5 \\ 3/5 & -1/5 \end{pmatrix}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Não importa qual o valor escolhido no item c da questão anterior, se ele for diferente de 6 sempre será possível obter a matriz inversa de $M$, pois o determinante de $M$ (denotado $Det(M)$) será diferente de 0. Você pode checar essa conclusão com os valores escolhidos por outros colegas.
+
+\subsection*{Matrizes e sistemas lineares}
+
+Considere a igualdade $\begin{pmatrix}2 & -1 \\ 1 & 3\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}3 \\ 5\end{pmatrix}$. Se tentarmos obter os valores de $x$ e $y$, seguiremos os seguinte passos:
+
+$$
+\begin{pmatrix}2 & -1 \\ 1 & 3\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}3 \\ 5\end{pmatrix} \Rightarrow \begin{pmatrix}2x-1y \\ 1x+3y\end{pmatrix} = \begin{pmatrix}3 \\ 5\end{pmatrix}
+$$
+
+Igualando termo a termo das matrizes dos dois lados da igualdade, chegamos nas equações $2x-1y=3$ e $1x+3y=5$, ou seja, resolver a equação matricial dada inicialmente é o mesmo que resolver o sistema de equações abaixo.
+
+$$\begin{cases}2x-1y=3\\1x+3y=5\end{cases}$$
+
+Ver sistemas lineares como matrizes traz algumas vantagens, especialmente no caso de sistemas com mais incógnitas e equações. Por isso é importante que você esteja familiarizado com a ideia.
+
+\begin{questao}
+\notaTutor{Trata-se apenas de uma questão para prática e familiarização com a representação de sistemas lineares na forma de matrizes.}Resolva os sistemas lineares dados a seguir.
+\begin{enumerate}[a)]
+\item $\begin{pmatrix}2 & 5 \\ 4 & -3\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}12 \\ -2\end{pmatrix}$
+\item $\begin{pmatrix}1 & -1 \\ 0 & 4\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}1 \\ 2\end{pmatrix}$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $x=1$ e $y=2$, b) $x=\frac{3}{2}$ e $y=\frac{1}{2}$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\subsection*{Determinantes e sistemas lineares}
+
+Se você voltar à questão anterior e calcular o determinante das matrizes que multiplicam $\begin{pmatrix}x \\ y\end{pmatrix}$ notará que ambos são diferentes de 0. A seguir, veremos o que ocorre com sistemas obtidos a partit de uma matriz com determinante igual a 0.
+
+\begin{questao}
+\notaTutor{Os estudantes podem estranhar o resultado do item b (sistema sem solução). Nesse caso, você pode mostrar a eles que se a primeira equação for multiplicada por $-2$ a equação resultante é contraditória com a segunda equação.}Considere a matriz $S=\begin{pmatrix}2 & 4 \\ -4 & -8\end{pmatrix}$
+\begin{enumerate}[a)]
+\item Calcule $Det(S)$.
+\item Resolva o sistema $S \times \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}6 \\ -15\end{pmatrix}$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $0$, b) sistema sem solução.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+O fato de $Det(S)=0$ e de o sistema não admitir solução não é uma coincidência, mas sim um resultado muito importante sobre sistemas lineares: \textbf{matrizes com determinantes nulos levam a sistemas lineares sem solução única}.
+
+\subsection*{Determinantes e sistemas lineares, parte 2}
+
+\begin{questao}
+\notaTutor{Trata-se apenas de uma questão para prática do cálculo de determinantes e fixação do resultado envolvendo determinantes e sistemas lineares.
+
+Um detalhe não foi discutido em profundidade no material do estudante: determinante igual a zero pode resultar em um sistema impossível ou um sistema possível e indeterminado (admite infinitas soluções). Um exemplo desse segundo caso pode ser obtido mudando o elemento $-15$ da matriz do item 5 questão 10 para $-12$. A distinção entre esses dois casos não pode ser feita via determinante.}Use o critério discutido acima para determinar se os sistemas abaixo possuem ou não solução única.
+\begin{enumerate}[a)]
+\item $\begin{pmatrix}-1 & 3 \\ 4 & 2\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}7 \\ 5\end{pmatrix}$
+\item $\begin{pmatrix} 9 & -6 \\ 6 & -4\end{pmatrix} \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}0 \\ 1\end{pmatrix}$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) sim, b) não.
+	\end{gabaritoQuestao}
+\end{gabarito}
+\vspace{2\gridL} %espaço prá nota marginal
+
+\subsection*{Finalizando}
+
+\begin{questao}
+\notaTutor{Essa questão abarca os tópicos mais importantes deste capítulo do ponto de vista do suporte para Geometria Analítica.} Considere a matriz $M=\begin{pmatrix}2 & -1 \\ 1 & 3\end{pmatrix}$.
+\begin{enumerate}[a)]
+\item Calcule $Det(M)$.
+\item Obtenha $M^{-1}$
+\item Resolva $M \times \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}6 \\ 17\end{pmatrix}$
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $7$, b) $\begin{pmatrix} 3/7 & 1/7 \\ -1/7 & 2/7 \end{pmatrix}$, c) $x=5$, $y=4$.
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\section{Rumo ao livro-texto}
+
+\notaTutor{O objetivo é discutir uma questão do que tipo ``mostre que'', tão comuns no ensino superior mas raramente abordadas no ensino médio. O ponto central a ser enfatizado aqui é a necessidade de não usar a hipótese (aquilo que se quer mostrar verdadeiro) ao longo da demonstração. No caso da questão resolvida e da proposta, utilizar a hipótese não facilita a resolução, mas incorre em um inconsistência lógica. Portanto, basta cuidado na apresentação da resolução para que isso não aconteça. Ao checar a resolução da questão proposta, seja bastante rigoroso com esse aspecto.}Essa questão foi escolhida para explicar uma classe de questões muito comum em livros de Geometria Analítica: as do tipo ``Mostre que''. Essas questões, de maneira geral, pedem que você mostre alguma propriedade que seja válida para contextos mais amplos. Na verdade, são ``pequenos teoremas'' que estão sendo descritos de maneira um pouco mais informal.
+
+\begin{resolvida}
+Mostre que toda matriz $2x2$ comuta com a matriz $A=\begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix}$ na multiplicação.
+\end{resolvida}
+
+
+Essa questão pede que você mostre que a multiplicação de duas matrizes $A$ e $B$, ambas 2x2, quando uma delas é da forma $\begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix}$, é \textbf{comutativa}, ou seja, $A \times B = B \times A$. Vimos anteriormente que isso não é verdadeiro para quaisquer matrizes, porém, pode ser verdade para alguns casos específicos, como o proposto na questão.
+
+Para resolver a questão vamos criar uma matriz genérica $M$ de dimensões 2x2: $M = \begin{pmatrix}m_{1,1} & m_{1,2} \\ m_{2,1} & m_{2,2}\end{pmatrix}$. Essa maneira de representar os elementos de uma matriz (usando a versão minúscula da letra que nomeia a matriz e índices para indicar a linha e a coluna de cada elemento no formato {\it linha, coluna}) é o mais comum, especialmente quando as matrizes tiverem tamanho maiores.
+
+Agora, vamos entender como uma questão desse tipo pode ser resolvida. Note que você deve concluir que $A \times M = M \times A$, portanto, você não pode utilizar essa informação como ponto de partida ou durante a sua resolução. É importante que isso fique claro. Para fins de resolução desta questão, você quer mostrar que $A \times M$ é igual a $M \times A$, mas você ainda não sabe se isso é verdadeiro, por isso não pode utilizar essa informação.
+
+Um erro comum entre estudantes que ainda não se acostumaram com esse tipo de questão é começar com a informação que deve ser demonstrada. Tipicamente, esses estudantes começariam a resolução da seguinte maneira:
+
+\begin{equation*}\begin{align}
+M \times A & = A \times M  \\
+\begin{pmatrix}m_{1,1} & m_{1,2} \\ m_{2,1} & m_{2,2}\end{pmatrix} \times \begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix} = {} & \begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix} \times \begin{pmatrix}m_{1,1} & m_{1,2} \\ m_{2,1} & m_{2,2}\end{pmatrix}
+\end{align}\end{equation*}
+
+E então fariam a multiplicação das matrizes com a intenção de chegar a resultados iguais dos dois lados da igualdade, o que de fato aconteceria. Mas isso está errado, pois a resolução começa usando a informação que deverá ser demonstrada, ou seja, começa usando uma informação que ainda não sabemos se é verdadeira. Porém, isso pode ser corrigido com uma mudança sutil, mas fundamental do ponto de vista matemático. Vamos começar checando qual seria o resultado de $A \times M$.
+
+\begin{equation*}\begin{align}
+A \times M & {} = \begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix} \times \begin{pmatrix}m_{1,1} & m_{1,2} \\ m_{2,1} & m_{2,2}\end{pmatrix} \\
+& {} = \begin{pmatrix}a \cdot m_{1,1} + 0 \cdot m_{2,1} & a \cdot m_{1,2} + 0 \cdot m_{2,2} \\  0 \cdot m_{1,1} + a \cdot m_{2,1} & 0 \cdot m_{1,2} + a \cdot m_{2,2}\end{pmatrix} \\
+& {} = \begin{pmatrix}a \cdot m_{1,1} & a \cdot m_{1,2} \\ a \cdot m_{2,1} & a \cdot m_{2,2}\end{pmatrix}
+\end{align}\end{equation*}
+
+Agora, verifiquemos o resultado de $M \times A$.
+
+\begin{equation*}\begin{align}
+M \times A & {} = \begin{pmatrix}m_{1,1} & m_{1,2} \\ m_{2,1} & m_{2,2}\end{pmatrix} \times \begin{pmatrix}a & 0 \\ 0 & a\end{pmatrix} \\
+& {} = \begin{pmatrix}a \cdot m_{1,1} + 0 \cdot m_{1,2} & 0 \cdot m_{1,1} + a \cdot m_{1,2} \\  a \cdot m_{2,1} + 0 \cdot m_{2,2} & 0 \cdot m_{2,1} + a \cdot m_{2,2}\end{pmatrix} \\
+& {} = \begin{pmatrix}a \cdot m_{1,1} & a \cdot m_{1,2} \\ a \cdot m_{2,1} & a \cdot m_{2,2}\end{pmatrix}
+\end{align}\end{equation*}
+
+Note que todos os elementos das duas matrizes obtidas são iguais. Portanto, isso nos permite concluir que o primeiro resultado ($A \times M$) é igual ao segundo ($M \times A$), ou seja, que $A \times M = M \times A$, como foi pedido no enunciado.
+
+O detalhe de não termos escrito a igualdade no início da resolução faz toda a diferença do ponto de vista lógico (não estamos usando algo que não sabemos se é ou não verdadeiro), apesar de fazer pouca diferença em termos dos cálculos realizados.
+
+Agora, tente usar uma abordagem semelhante para a questão a seguir, retirada do livro \sugestao{Matrizes, Vetores e Geometria Analítica}.
+
+\begin{resolva}
+Mostre que a matriz $X = \begin{pmatrix}1 & \frac{1}{y} \\ y & 1\end{pmatrix}$, em que $y$ é um número real não nulo, verifica a equação $X^2 = 2X$.
+\end{resolva}
+
+%\end{comment}
+\paraTutores
+
+\subsection{Questões adicionais}
+
+\begin{adicional}
+\notaTutor{Insista que os estudantes devem de fato escrever a resposta do item b tentando ser o mais claros e completos possível. Uma possiblidade é dizer que os elementos $b$ da matriz $B=A^n$ são dados por $b_{i,j}=a_{i,j}^n$, ou seja, a potência da matriz pode ser ``distribuída'' internamente para os elementos.}Seja $A$ uma matriz diagonal de dimensões $2x2$
+\begin{enumerate}[a)]
+\item Calcule $A^2$ e $A^3$.
+\item O que deve ocorrer com a matriz $A^n$?
+\end{enumerate}
+\end{adicional}
+
+
+\begin{adicional}
+\notaTutor{Essa questão não envolve conceitos novos, mas demanda manipulações algébricas com raízes quadradas. que podem gerar certas dificuldades.}Considere a matriz $M=\begin{pmatrix}2 & \sqrt{6} \\ \sqrt{2} & x\end{pmatrix}$.
+\begin{enumerate}[a)]
+\item Obtenha $x$ para que o determinante dessa matriz seja igual a $0$.
+\item Obtenha $x$ para que o determinante dessa matriz seja igual a $\sqrt{3}$.
+\item Obtenha a $M^{-1}$ para o valor de $m$ calculado no tem b.
+\end{enumerate}
+\end{adicional}
+
+\begin{adicional}
+\notaTutor{Essa questão envolve uma situação nova: a determinação do valor de $t$ para que o sistema tenha infinitas soluções. Esse caso ocorre quando as linhas do sistema são múltiplas uma da outra.}Considere o sistema $\begin{pmatrix}12 & a \\ 9 & 6\end{pmatrix} \times \begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}4 \\ t\end{pmatrix}$.
+\begin{enumerate}[a)]
+\item Determine o valor de $a$ para que o sistema não admita solução única.
+\item Considerando o valor de $a$ obtido no item anterior, qual deve ser o valor de $t$ para que o sistema tenha infinitas soluções?
+\end{enumerate}
+\end{adicional}
+
+Caso os alunos tenham resolvido essas questões, sugerimos os exercícios das seções 1.6 (matrizes e operações), 2.6 (sistemas lineares) e 3.10 (determinantes e matrizes inversas) do livro \sugestao{Álgebra Linear}. Entretanto, essa ista contem questões com matrizes de dimensões maiores.
+
+%\end{comment}
+\paraAmbos
+
+
+\newpage
+
+\section{Gabarito}
+
+Confira as respostas para as questões e \textbf{não se esqueça de registrar o seu progresso}.
+
+\imprimeGabarito
+
+%\end{comment}
+\paraAlunos
+
+\section{Auto-avaliação final}
+Avalie o quanto você acha que sabe sobre os seguintes itens após ter resolvido as questões deste capítulo.
+
+%\end{comment}
+\paraFolhaAvaliacoes
+
+\begin{center}
+ \begin{tabular}{|p{35mm}||p{15mm}|p{15mm}|p{15mm}|p{15mm}|} 
+ \hline
+   & Nada & Muito pouco & Noções gerais & Bastante\\
+ \hline
+ Soma e subtração de matrizes &  &  &  &  \\ 
+ \hline
+ Multiplicação de matrizes &  &  &  &  \\
+ \hline
+ Determinantes de matrizes 2x2 &  &  &  &  \\
+ \hline
+ Obter matrizes inversas &  &  &  &  \\
+ \hline
+\end{tabular}
+\end{center}
+
+Cheque como foi o seu progresso comparando essas respostas com as que você deu antes de estudar este capítulo. Caso você não tenha atingido o nível ``Bastante''  em algum dos tópicos acima, liste abaixo qual ação concreta você fará nos próximos dias para atingi-lo:
+
+%\end{comment}
+\paraAmbos
+
+\end{document}

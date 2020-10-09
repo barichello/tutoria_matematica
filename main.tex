@@ -1,0 +1,614 @@
+
+
+% 0 - ambos
+% 1 - apenas alunos
+% 2 - apenas tutores
+% 3 - para folha avaliações
+\def\destinacaoConteudo{0}
+\def\kParaAmbos{0}
+\def\kParaAlunos{1}
+\def\kParaTutores{2}
+\def\kParaFolhaAvaliacoes{3}
+
+\documentclass[10pt,openany,twoside=semi]{book}
+
+%encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{gensymb} %simbolo de grau
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{etoolbox}
+\usepackage{intcalc}
+%--------------------------------------
+
+%formatting
+\usepackage{xltxtra} %coisas do xelatex incluindo a possibilidade de usar fontes OpenType para o texto.
+\usepackage[strict]{changepage} %permite mudar as margens no meio do documento
+\usepackage{lipsum}
+\usepackage{calc}
+\usepackage{tabto}
+\usepackage{background} %para fazer a linha vertical
+\usepackage{needspace}
+\usepackage{emptypage}
+ 
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{subfiles} %suporte a multiplos arquivos
+\graphicspath{{img/}} %pasta das imagens
+\usepackage{fancyhdr} %para formatar o rodape
+
+\usepackage[euler-digits,euler-hat-accent]{eulervm}
+\usepackage[normalem]{ulem}
+
+\generalcomment{destinacao}{}{}
+
+\newcommand{\paraTutores}{%	
+	\def\destinacaoConteudo{\kParaTutores}	
+
+	\ifnum\strcmp{\versaoApostila}{tutor}=0
+		\estiloTutores
+	\fi
+	
+	\ifnum\strcmp{\versaoApostila}{aluno}=0
+		\begin{comment}
+	\fi
+}
+
+\newcommand{\paraAlunos}{%
+	\ifnum\strcmp{\versaoApostila}{tutor}=0
+		\estiloAlunos
+		\color{gray}
+	\fi
+	\def\destinacaoConteudo{\kParaAlunos}
+}
+
+\newcommand{\paraFolhaAvaliacoes}{%
+	\def\destinacaoConteudo{\kParaFolhaAvaliacoes}
+	\begin{comment}
+}
+
+\newcommand{\paraAmbos}{%
+	\def\destinacaoConteudo{\kParaAmbos}
+	\ifnum\strcmp{\versaoApostila}{tutor}=0
+		\estiloAlunos
+		\color{black}
+	\fi
+}
+
+\newcounter{testpage}
+
+\newcommand{\clearquadruplepage}{	
+   	\setcounter{testpage}{\intcalcMod{\thepage}{4}}   	
+   	\ifnum\thetestpage=0
+	   	\newpage
+	\else
+		\ifnum\thetestpage=1
+			\newpage \thispagestyle{empty} \hbox{} \newpage \thispagestyle{empty} \hbox{} \newpage \thispagestyle{empty} \hbox{} \newpage
+		\else
+			\ifnum\thetestpage=2
+				\newpage \thispagestyle{empty} \hbox{} \newpage \thispagestyle{empty} \hbox{} \newpage
+			\else
+				\ifnum\thetestpage=3
+					\newpage \thispagestyle{empty} \hbox{} \newpage
+				\fi
+			\fi
+		\fi	
+	\fi
+}
+
+\newdimen\gridM\gridM=24.70pt
+\newdimen\gridL\gridL=13.228pt
+% um módulo = 24.70pt
+% uma linha = 13.228pt
+
+
+
+
+
+\setmainfont{Spectral}
+\linespread{1.10} %vira uma line height de 13.228pt
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1\gridL}
+\definecolor{titlecolor}{cmyk}{0,0.44,1,0}
+\definecolor{questaocolor}{cmyk}{0,0.44,1,0}
+\definecolor{boxbg}{cmyk}{0,0.04,0.1,0}
+
+\setsansfont{Archivo}[
+  FontFace={archivor}{n}{Font=* Regular},
+  FontFace={archivom}{n}{Font=* Medium},
+  FontFace={archivosb}{n}{Font=* SemiBold},
+  FontFace={archivob}{n}{Font=* Bold},
+]
+
+\newfontfamily\ArchivoBlackFourteen[SizeFeatures={Size=14}]{Archivo Black}
+\newfontfamily\ArchivoBlackTen[SizeFeatures={Size=10}]{Archivo Black}
+\newfontfamily\ArchivoMediumTitle[SizeFeatures={Size=36}]{Archivo}
+\newfontfamily\ArchivoMediumNine[SizeFeatures={Size=9}]{Archivo}
+\newfontfamily\ArchivoMediumEight[SizeFeatures={Size=7.8}]{Archivo}
+\newfontfamily\BioRhymeExpandedChapter[SizeFeatures={Size=170}]{BioRhyme Expanded}
+\newfontfamily\BioRhymeExpandedQuestao[SizeFeatures={Size=10}]{BioRhyme Expanded}
+
+
+\TabPositions
+	{%
+	 0.5\gridM ,
+	 1.0\gridM ,
+	 1.5\gridM ,
+	 2.0\gridM ,
+	 2.5\gridM ,
+	 3.0\gridM ,
+	 3.5\gridM ,
+	 4.0\gridM ,
+	 4.5\gridM ,
+	 5.0\gridM ,
+ 	 5.5\gridM ,
+	 6.0\gridM ,
+ 	 6.5\gridM ,
+	 7.0\gridM ,
+ 	 7.5\gridM ,
+	 8.0\gridM ,
+	 8.5\gridM ,
+	 9.0\gridM ,
+ 	 9.5\gridM ,
+	 10.0\gridM ,
+ 	 10.5\gridM ,
+	 11.0\gridM ,
+ 	 11.5\gridM ,
+ 	 12.0\gridM ,
+ 	 12.5\gridM ,
+ 	 13.0\gridM ,
+ 	 13.5\gridM ,
+ 	 14.0\gridM ,
+ 	 14.5\gridM ,
+ 	 15.0\gridM ,
+ 	 15.5\gridM ,
+ 	 16.0\gridM ,
+ 	 16.5\gridM
+	 }
+
+%novos ambientes que eu criei
+%--------------------------------------
+\newtheoremstyle{estiloQuestao}
+	{\gridL}
+	{0pt}
+	{\setlist[enumerate]{font=\bfseries, leftmargin=0pt, labelsep=1.0\gridM}}
+	{-2\gridM}
+	{\BioRhymeExpandedQuestao\color{questaocolor}}
+	{\hspace{-5pt}}
+	{0pt}
+	{\hbox to 2\gridM{\thmname{#1}\thmnumber{#2}} \thmnote{#3}}
+\theoremstyle{estiloQuestao}
+\newtheorem{questao}{Q}[chapter]
+\renewcommand*{\thequestao}{\arabic{questao}}
+
+\newtheorem{adicional}{A}[chapter]
+\renewcommand*{\theadicional}{\arabic{adicional}}
+
+\theoremstyle{estiloQuestao}
+\newtheorem{gabaritoQuestao}{Q}[chapter]
+\renewcommand*{\thegabaritoQuestao}{\arabic{gabaritoQuestao}}
+
+\theoremstyle{estiloQuestao}
+\newtheorem{diagnostico}{D}[chapter]
+\renewcommand*{\thediagnostico}{\arabic{diagnostico}}
+
+\theoremstyle{plain}
+
+\newtheoremstyle{estiloSetinha}
+	{\gridL}
+	{0pt}
+	{\itshape \setlist[enumerate]{font=\bfseries, leftmargin=0pt, labelsep=1.0\gridM}}
+	{-2\gridM}
+	{}
+	{\hspace{0pt}}
+	{0pt}
+	{\textsc{\thmname{\MakeLowercase{#1}}\enspace→\enspace\thmnote{#3}}}
+
+\theoremstyle{estiloSetinha}
+\newtheorem*{reflita}{Reflita}
+
+\theoremstyle{estiloSetinha}
+\newtheorem*{resolvida}{Questão resolvida}
+
+\theoremstyle{estiloSetinha}
+\newtheorem*{resolva}{Questão do livro-texto}
+
+\theoremstyle{estiloSetinha}
+\newtheorem*{teorema}{Teorema}
+
+\DeclareTextFontCommand\sugestao{\textsc}
+%--------------------------------------
+
+%elementos visuais
+%--------------------------------------
+
+
+
+
+
+
+
+\usepackage{framed} %para o box
+\colorlet{shadecolor}{boxbg} %para o box
+\usepackage{tcolorbox} %melhor para o box do que o framed
+\tcbuselibrary{breakable}
+
+
+\usepackage{marginnote}
+\usepackage{geometry} %margens
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+ 
+ \geometry{
+ a5paper,
+ inner=3.5\gridM,
+ outer=3.5\gridM,
+ top=3\gridL,
+ bottom=6\gridL,
+ }
+ 
+ \newcommand{\notaTutor}[1]{ }
+
+\else
+ 
+ \geometry{
+ a4paper,
+ left=4\gridM,
+ right=10.117\gridM,
+ top=3\gridL,
+ bottom=10\gridL,
+ marginparsep=2.5\gridM,
+ marginparwidth=7\gridM,
+ asymmetric
+ }
+ 
+ \normalmarginpar
+ \marginparpush=2\gridL
+ 
+ \newcommand{\notaTutor}[1]{
+ 	\hspace{0pt}\marginpar{
+ 		\scriptsize
+ 		\linespread{1.654} 
+ 		\parskip=\gridL
+ 		\ArchivoMediumEight
+ 		\raggedright
+		\setlist[enumerate]{leftmargin=0.5\gridM, labelsep=0.25\gridM}
+		\setlist[itemize]{leftmargin=0.5\gridM, labelsep=0.25\gridM}
+		\renewcommand\labelitemi{{\setmainfont{Spectral}→}\ArchivoMediumEight}
+ 		
+ 		#1}}
+ 
+\fi
+
+\usepackage{titlesec} %titulos para as questoes
+
+
+
+
+%Fazendo as caixinhas de exemplo
+\newlength{\identacao}
+\setlength{\identacao}{2\gridM-5pt}%
+
+\newenvironment{caixaExemplo}{\begin{tcolorbox}[%
+	grow to left by=2\gridM,
+	left=2pt,
+	grow to right by=2\gridM,
+	right=2pt,
+	boxrule=0pt,
+	arc=0pt,
+	colframe=boxbg,
+	colback=boxbg,
+	breakable
+]
+\itshape
+\leftskip=\identacao
+\rightskip=\identacao
+%
+\setlist[itemize]  {leftmargin=1.8\gridM, labelsep=0.5\gridM, itemsep=1\gridL, topsep=1\gridL}
+\setlist[enumerate]{leftmargin=1.8\gridM, labelsep=0.5\gridM, itemsep=1\gridL, topsep=1\gridL}
+%
+}{\end{tcolorbox}}
+
+
+\newcommand{\tituloSubsection}[1]{%
+   \needspace{4\gridL}
+
+   \ifnum\destinacaoConteudo=\kParaTutores{
+   	\leftskip=-2.0\gridM \parskip=0pt
+   	\ArchivoBlackTen #1 \vspace{-3\gridL}
+   	
+}
+   \else { \ArchivoBlackTen #1 \vspace{-3\gridL}}
+   \fi
+   
+}
+
+\titleformat{name=\subsection}{}{}{0em}{\tituloSubsection} %2 módulos ====>>> Muito estranho se desloca prá baixo ele ferra com a divisória
+
+\def\divisoria{\bgroup \markoverwith{\lower3.5\p@\hbox{\sixly \textcolor{titlecolor}{\char58}}}\ULon}
+\font\sixly=lasyb10
+\def\divisoriapadrao{\divisoria{\hspace{14\gridM}}}
+
+{
+
+\baselineskip15pt
+\lineskiplimit-20pt
+
+}
+
+\newcommand{\tituloComOndulado}[1]{%
+\needspace{4\gridL}
+\ifnum\destinacaoConteudo=\kParaTutores
+{%
+   \leftskip=-2.0\gridM 
+   \ArchivoBlackTen \MakeUppercase{#1} 
+   
+}
+\else
+  \begin{tcolorbox}[%
+	grow to left by=2\gridM,
+	left=0pt,
+	grow to right by=2\gridM,
+	right=0pt,
+	boxrule=0pt,
+	arc=0pt,
+	colframe=boxbg,
+	colback=white
+  ]
+	\ArchivoBlackFourteen
+	{\hspace{-1pt}\divisoriapadrao \vspace{10pt}}\linebreak
+
+	\vspace{-10pt}
+	\parindent=0pt
+	\hangindent=0pt
+	\raggedright
+	\textcolor{titlecolor}{\hspace{-4pt}\MakeUppercase{#1}}
+  \end{tcolorbox}
+\fi
+}
+
+%aqui
+
+\newcommand{\caixatitulao}[1]{%
+\vspace{-9\gridL}
+\begin{tcolorbox}[%
+	grow to left by=2\gridM,
+	left=0pt,
+	grow to right by=2\gridM,
+	right=0pt,
+	boxrule=0pt,
+	arc=0pt,
+	colframe=boxbg,
+	colback=white,
+	text height=12\gridL,
+	breakable
+]
+
+{\color{titlecolor}\BioRhymeExpandedChapter\hspace{-0.5\gridM}\thechapter}
+	\vspace{-6\gridL}
+	\begin{flushleft}
+		\par\leftskip=2\gridM \ArchivoMediumTitle #1
+	\end{flushleft}
+\end{tcolorbox}
+}
+
+\titleformat{name=\chapter}[display]{}{}{0em}{\caixatitulao}[\vspace{-6\gridL}]
+\titleformat{name=\section}[display]{}{}{0em}{\tituloComOndulado}[\vspace{-3\gridL}]
+
+
+\newcommand{\estiloAlunos}{
+	\setlist[enumerate]{leftmargin=0pt, labelsep=0.5\gridM}
+	\setlist[itemize]{leftmargin=0pt, labelsep=0.5\gridM}
+	\renewcommand\labelitemi{→}
+	
+	\setmainfont{Spectral}
+	\leftskip=0pt
+}
+
+\newcommand{\estiloTutores}{
+	\setlist[enumerate]{leftmargin=-2.0\gridM, labelsep=0.5\gridM}
+	\setlist[itemize]{leftmargin=-2.0\gridM, labelsep=0.5\gridM}
+	\renewcommand\labelitemi{{\setmainfont{Spectral} →}}
+	\color{black}
+	\ArchivoMediumNine
+	\leftskip=-2.0\gridM
+}
+
+\estiloAlunos
+
+%texto alinhado a esquerda
+\raggedright
+%evita de ele preencher os espaços verticais
+\raggedbottom
+
+
+\newbox\gabaritoAcumulado
+\setbox\gabaritoAcumulado=\vbox{}
+
+\newenvironment{gabarito}
+{%
+  \global\setbox\gabaritoAcumulado=\vbox\bgroup
+  \unvbox\gabaritoAcumulado
+}%
+{%
+  \bigbreak
+  \egroup
+}
+
+\newcommand{\imprimeGabarito}{\par\unvbox\gabaritoAcumulado}
+
+%--------------------------------------
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\newcommand{\titulo}{Material do estudante - Tutoria MA111 e MA141}
+\else
+	\newcommand{\titulo}{Material do tutor - Tutoria MA111 e MA141}
+\fi
+
+\title{\titulo}
+\author{Leonardo Barichello}
+\date{\today}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={3.0},
+]{doclicense}
+
+\begin{document}
+
+
+\backgroundsetup{contents={}}
+\maketitle
+%Rodape - PARA FUNCIONAR CORRETAMENTE TEM QUE SER COLOCADO DEPOIS DO MAKETITLE
+%---------------------------------------
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[LE,LO]{%
+	\ifnum\strcmp{\versaoApostila}{aluno}=0
+		\vspace{0.5\gridL}
+	\else
+		\vspace{2.5\gridL}
+	\fi
+	\hbox to 16\gridM{\hspace{-2\gridM}\hbox to 14\gridM{\rule[0.5\gridL]{14\gridM + 2.5pt}{0.5pt}}}
+	\hbox to 14\gridM{\hspace{-2\gridM}\hbox to 2\gridM{\thepage\hfill}\hfill}
+  }
+}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyfoot[LO]{%
+	\ifnum\strcmp{\versaoApostila}{aluno}=0
+		\vspace{0.5\gridL}
+	\else
+		\vspace{2.5\gridL}
+	\fi
+	\hbox to 16\gridM{\hspace{-2\gridM}\hbox to 14\gridM{\rule[0.5\gridL]{14\gridM + 2.5pt}{0.5pt}}}
+	\hbox to 14\gridM{\hspace{-2\gridM}\hbox to 2\gridM{\thepage\hfill}\textsc{\MakeLowercase{\leftmark}}\hfill}
+}
+\fancyfoot[LE]{%
+	\ifnum\strcmp{\versaoApostila}{aluno}=0
+		\vspace{0.5\gridL}
+	\else
+		\vspace{2.5\gridL}
+	\fi
+	\hbox to 16\gridM{\hspace{-2\gridM}\hbox to 14\gridM{\rule[0.5\gridL]{14\gridM +2.5pt}{0.5pt}}}
+	\hbox to 14\gridM{\hspace{-2\gridM}\hbox to 2\gridM{\thepage\hfill}\textsc{\MakeLowercase{\titulo}}\hfill}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+
+%faz a linha vertical
+\ifnum\strcmp{\versaoApostila}{tutor}=0
+ \SetBgScale{1}
+ \SetBgAngle{0}
+ \SetBgColor{lightgray}
+ \SetBgContents{\rule{.5pt}{\paperheight}} 
+ \SetBgHshift{16.117\gridM -\paperwidth / 2 }
+\fi
+
+%---------------------------------------
+
+\subfile{introducao.tex}
+
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap1.tex} %Matrizes 2x2
+
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap2.tex} %Potenciais, exp e log
+
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap3.tex} %Polinomios
+
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap4.tex} %Trigonometria e vetores
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap5.tex} %Composicao, inversa, troca de variaveis
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap6.tex} %Reta e circunferencia
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{cap7.tex} %Transformacao de graficos
+
+
+
+%mudanca de formato no material
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{lista_1.tex} %Integral por partes
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{lista_2.tex} %Substituição trigonometrica
+
+
+
+\ifnum\strcmp{\versaoApostila}{aluno}=0
+	\clearquadruplepage
+\fi
+\subfile{lista_3.tex} %Fracoes parciais
+ 
+ 
+ 
+\end{document}

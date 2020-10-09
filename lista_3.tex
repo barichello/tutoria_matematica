@@ -1,0 +1,246 @@
+\documentclass[main_estudante.tex]{subfiles}
+
+\begin{document}
+
+%\end{comment}
+\paraAmbos
+
+\chapter{Revisão para frações parciais}
+
+\section{Apresentação}
+
+A motivação para essa técnica de integração vem do fato de que integrais do tipo $\int \frac{c}{ax+b} dx$ são simples de calcular enquanto que integrais como $\int \frac{ax^3+bx^2+cx+d}{dx^2+ex+f} dx$ não são. Na verdade, a integral de uma função dada pela razão entre dois polinômios com grau maior ou igual a 2 é bastante complicada sem essa técnica.
+
+O que faremos nesse capítulo é uma revisão dos aspectos algébricos necessários para o uso dessa técnica, sem nos preocuparmos de fato com o cálculo das integrais. O seu professor de MA111 cobrirá esse último aspecto.
+
+%\end{comment}
+\paraTutores
+
+\section{Comentários iniciais}
+
+Esse capítulo é inteiramente focado em como transformar frações algébricas (em que numerador e denominador são polinômios) de modo a rescrevê-las como uma soma de polinômios e frações em que o denominador seja um polinômio do primeiro grau.
+
+Esse processo faz parte da técnica chamada de integração por frações parciais, mas focaremos na transformação das frações, sem entrar em detalhes sobre como calcular as integrais. Isso deverá ser feito pelo professor de MA111.
+
+%\end{comment}
+\paraAmbos
+
+\section{Quando usar}
+
+Este capítulo deve ser resolvido antes do professor de MA111 abordar integração por frações parciais.
+
+\section{Conteúdos anteriores}
+
+Todo o conteúdo deste capítulo gira em torno de manipulações algébricas com frações envolvendo polinômios. Portanto, é fundamental que você tenha estudado o capítulo sobre polinômios deste material. Especificamente, os tópicos a seguir são pré-requisitos para este capítulo:
+\begin{itemize}
+ \item Igualdade de polinômios;
+ \item Divisão de polinômios.
+\end{itemize}
+
+Esses tópicos não serão cobertos durante as atividades de tutoria. Se você acha que não sabe o suficiente sobre algum deles, sugerimos que volte ao capítulo sobre polinômios deste material e os revise.
+
+\newpage
+
+\section{Questões}
+
+O nosso objetivo ao longo das próximas questões será transformar a expressão $\frac{x^3+5x}{x^2+3x+2}$ em uma expressão que seja composta por uma soma de um polinômios e frações que tenham polinômios de primeiro grau como denominadores, ou seja, algo como $p(x)+\frac{a}{bx+c}$ (talvez seja necessáro mais de uma fração com formato semelhante).
+
+\subsection*{Raízes}
+
+Vamos começar revisando algumas transformações básicas.
+
+\begin{questao}
+Considerando o numerador e o denominador da fração $\frac{x^3+5x}{x^2+3x+2}$ separadamente, responda:
+\begin{enumerate}[a)]
+\item Quais são as raízes de $x^2+3x+2$?
+\item Escreva $x^2+3x+2$ na forma fatorada.
+\item Quais são as raízes reais de $x^3+5x$?
+\item Escreva $x^3+5x$ na forma fatorada.
+\item Rescreva a fração com as formas fatoradas.
+\end{enumerate}
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $-1 e -2$, b) $(x+1)(x+2)$, c) $0$, d) $x(x^2+5)$, e) $\frac{x(x^2+5)}{(x+1)(x+2)}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Note que não há nenhum fator em comum entre numerador e denominador para que possamos simplificar a fração dada.
+
+\subsection*{Fração imprópria}
+
+Você deve se lembrar do conceito de fração imprópria. Um exemplo é a fração $\frac{7}{3}$. Ela é chamada de imprópria porque 7 é maior do que 3, portanto, ela pode ser rescrita como um número inteiro mais uma fração própria:$\frac{7}{3}=\frac{6+1}{3}=\frac{6}{3}+\frac{1}{3}=2+\frac{1}{3}$.
+
+Algo similar pode ser dito da nossa fração, como o numerador tem grau maior do que o denominador, se efetuarmos a divisão entre os polinômios vamos obter uma expressão equivalente mas com uma parte fracionária mais simples.
+
+\notaTutor{Evite explicar o algoritmo da divisão de polinômios antes de os estudantes terem tentado entendê-lo a partir da referência sugerida.}
+
+\begin{questao}
+Efetue a divisão de ${x^3+5x}$ por ${x^2+3x+2}$. Caso você não se lembre exatamente como proceder, leia o exemplo 2 do capítulo 4.2 do livro Matemática Básica - volume 1.
+\end{questao}
+
+\notatutor{A explicação que segue a questão é conceitualmente muito importante. Certifique-se de que os estudantes a leram e entenderam. Se necessário, faça o caminho inverso para mostrar que a igualdade vale: multiplique o resultado da divisão pelo divisor e some o resto para obter o polinômio que foi dividido originalmente. Pode valer a pena sugerir mais algum exemplo (criados aleatoriamente com polinômios de graus entre 2 a 5) para os estudantes com dificuldade.}
+
+Você deve ter obtido o quociente $(x-3)$ e resto $(12x+6)$. Isso significa que ${x^3+5x}$ é igual a $(x^2+3x+2)(x-3)+(12x+6)$. Se você está estranhando essa igualdade, leia a questão seguinte do capítulo Y. 
+
+Dessa forma, podemos rescrever a fração inicial como mostrado abaixo:
+
+\begin{align*}
+\frac{x^3+5x}{x^2+3x+2} &= \frac{(x^2+3x+2)(x-3)+(12x+6)}{x^2+3x+2} \\
+&=\frac{(x^2+3x+2)(x-3)}{x^2+3x+2}+\frac{12x+6}{x^2+3x+2} \\
+&=(x-3)+\frac{12x+6}{x^2+3x+2} \\
+\end{align*}
+
+Veja que nessa expressão, a primeira parcela é simples de integrar e a segunda já tem um numerador com grau menor do que a original. Vamos focar apenas em $\frac{12x+6}{x^2+3x+2}$ deste ponto em diante.
+
+\subsection*{Mudando as frações}
+
+Se você recuperar a forma fatorada obtida na primeira questão, podemos escrever $\frac{12x+6}{x^2+3x+2}$ na forma $\frac{12x+6}{(x+1)(x+2)}$. Essa forma sugere que essa fração poderia ser rescrita como uma soma de frações com $(x+1)$ e $(x+2)$ como denominadores, ou seja, como uma soma do tipo $\frac{A}{x+1}+\frac{B}{x+2}$ para algum valor de $A$ e $B$.
+
+\notaTutor{Essa questão pretende apenas confirmar que os estudantes se lembram como efetuar essa soma. Se necessário, sugira alguns exemplos adicionais com o mesmo formato: números reais no numerador e polinômios do primeira grau no denominador.}
+
+\begin{questao}
+Para fins de prática, efetue a soma $\frac{3}{x+1}+\frac{4}{x+2}$.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\frac{7x+10}{(x+1)(x+2)}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Voltando à nossa fração de interesse, $\frac{12x+6}{(x+1)(x+2)}$, como o numerador é de grau 1, é razoável esperar que existam números reais $A$ e $B$ que façam com que ela possa ser rescrita na forma $\frac{A}{x+1}+\frac{B}{x+2}$.
+
+\begin{questao}
+Efetue a soma $\frac{A}{x+1}+\frac{B}{x+2}$ e escreva o numerador na forma de um binômio, ou seja, no formato $mx+n$.
+\end{questao}
+
+\notaTutor{A resposta esperada para essa questão é $\frac{(A+B)x+(2A+B)}{x^2+3x+2}$, ou seja, o numerador tem um formato pouco usual. Pode ser que seus estudantes tenham dificuldade em vislumbrar esse formato. Mostre que nele os termos do binômio ficam claros e, dessa forma, poderemos fazer a comparação da próxima questão.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\frac{(A+B)x+(2A+B)}{x^2+3x+2}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Você deve ter obtido a fração $\frac{(A+B)x+(2A+B)}{x^2+3x+2}$ na questão acima. Se igualarmos essa fração à $\frac{12x+6}{x^2+3x+2}$ (note que os denominadores são iguais), concluímos que $(A+B)x+(2A+B)=12x+6$.
+
+\begin{questao}
+Determine o valor de $A$ e $B$ para a igualdade de polinômios $(A+B)x+(2A+b)=12x+6$ seja satisfeita.
+\end{questao}
+
+\notaTutor{Note que não é o valor de $x$ que deve ser determinado, mas sim o valor de $A$ e $B$ para que os polinômios dos dois lados da igualdade sejam idênticos.
+
+Isso feito, a questão foi resolvida. Você pode optar por calcular a integral de fato com seus estudantes se julgar adequado. 
+
+As questões a seguir sintetizam o processo como um todo, mas sem o auxílio dos itens dividindo o processo em etapas curtas.}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$A=-6$ e $B=18$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Isso significa que $\frac{12x+6}{x^2+3x+2}$ é igual a $\frac{-6}{x+1}+\frac{18}{x+2}$. Essas duas frações são chamadas de frações parciais.
+
+Em conclusão, a fração que tínhamos inicialmente pode ser rescrita seguindo as transformações abaixo:
+
+\begin{align*}
+\frac{x^3+5x}{x^2+3x+2} = (x-3)+\frac{12x+6}{x^2+3x+2} = (x-3)+\frac{-6}{x+1}+\frac{18}{x+2}
+\end{align*}
+
+Você pode verificar se a igualdade acima está correta desenvolvendo a expressão mais à direita e verificando se você chega na forma dada inicialmente (sugiro que isso seja feito caso você não se sinta confortável com as manipulações algébricas realizadas até aqui).
+
+Finalmente, note que a fração inicial não era simples de integrar, mas a obtida ao final do processo é (basta fazer a troca $u=x+1$ para a primeira fração e $t=x+2$ para a segunda).
+
+\subsection*{Três casos iniciais}
+
+\notaTutor{As três questões abaixo são casos incompletos do procedimento realizado nas questões anteriores. A intenção é tornar mais saliente cada uma das etapas para que o estudante se conscientize do que está fazendo (e o que é de fato necessário fazer) ao longo do processo.}
+
+Para compreender o processo como um todo, vamos fazer três casos incompletos. No primeiro, é necessário apenas a primeira parte, ou seja, dividir os polinômios de modo a não termos mais uma fração imprópria. No segundo podemos ir direto para as frações parciais, sem precisar dividir os polinômios. O terceiro também será incompleto, mas cabe a você concluir onde.
+
+\notaTutor{Note que nessa questão, não foi pedido ao estudante que obtenha as frações parciais, apenas que se reduza a fração algébrica dada a uma nova expressão em que o polinômio no numerador tenha grau menor do que o do denominador. Se houver tempo, sugira que eles finalizem o processo até o final.}
+
+\begin{questao}
+Transforme a fração $\frac{x^3+6x^2+11x+6}{x^2-2}$ de modo que seja escrita como uma soma de um polinômio com uma fração algébrica não imprópria.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$x+6 + \frac{13x+18}{x^2-2}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\notaTutor{Já a próxima questão não exige a realização da divisão de polinômios e parte diretamente para a obtenção das frações parciais.}
+
+\begin{questao}
+Transforme a fração $\frac{2x-7}{x^2+3x-4}$ em uma soma de frações cujos denominadores sejam binômios do tipo $ax+b$ e e numeradores sejam números reais.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\frac{3}{x+4}+\frac{-1}{x-1}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\noTutor{Por fim, essa fração poderá ser simplificada diretamente para um formato bom para o cálculo de integrais, sem necessidade de obter frações parciais.}
+
+\begin{questao}
+Rescreva a fração $\frac{x^2+x}{x^3-x}$ em um formato mais simples para integração.
+\end{questao}
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		$\frac{1}{x-1}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+Note que na questão anterior não foi necessário obter as frações parciais, pois a fração restante depois da divisão de polinômios já possuía denominador do primeiro grau e um número real como numerador.
+
+\subsection*{Um caso completo}
+
+Agora vamos resolver um caso completo. Não se preocupe em terminar rapidamente. A intenção aqui é compreender cada etapa do processo para que, quando o tópico for abordado em MA111, você saiba se orientar dentre os diversos casos que serão discutidos.
+
+\begin{questao}
+Vamos transformar a fração $\frac{(x+5)(x+2)(x-2)(x-1)}{x^3+4x^2-x-4}$ em uma soma que envolva frações com denominadores mais simples.
+\begin{enumerate}[a)]
+\item Fatore o denominador e rescreva a fração simplificando fatores, se possível.
+\item Desenvolva os fatores que sobraram no numerador e rescreva a fração.
+\item Como o grau do numerador é maior do que o do denominador, faça a divisão do numerador pelo denominador de modo a rescrever a fração dada como uma soma de um polinômio com uma fração com numerador de grau menor.
+\item Como a parte fracionária obtida tem numerador do primeiro grau e denominador do segundo grau que pode ser fatorado, iguale a parte fracionária a uma soma de frações do tipo $\frac{A}{x+1}+\frac{B}{x+4}$. Quais são os valores de $A$ e $B$?
+\item Qual é a forma final da expressão dada inicialmente?
+\end{enumerate}
+\end{questao}
+
+\notaTutor{Essa última questão demanda todos os passos feitos ao longo das cinco primeiras questões. Se você julgar adequado, pode sugerir a alguns de seus estudantes que tentem fazer sem seguir os itens. Não esperamos que eles tenham decorado as etapas, mas sim entendido a necessidade, função e significado de cada uma delas, mesmo que demorem para operacionalizá-las. }
+
+\begin{gabarito}
+	\begin{gabaritoQuestao}
+		a) $\frac{(x+5)(x+2)(x-2)}{(x+4)(x+1)}$, b) $\frac{x^3+5x^2-4x-20}{x^2+5x+4}$, c) $x+\frac{-8x-20}{x^2+5x+4}$, d) $A=-4$ e $B=-4$, e) $x+\frac{-4}{x+1}+\frac{-4}{x+4}$
+	\end{gabaritoQuestao}
+\end{gabarito}
+
+\section{Mensagem final}
+
+O processo que você utilizou para resolver a questão anterior é a justificativa por trás da técnica de integração conhecida como \textbf{frações parciais}. Os exemplos discutidos pertencem, na verdade, a um mesmo caso (denominador com todas as raízes reais e diferentes). Nas aulas de Cálculo você verá como o método precisa ser ajustado quando o denominador possui raízes iguais ou quando alguma de suas raízes não é real. Porém, a essência da técnica é o que fizemos aqui: dividir os polinômios de modo a reduzir o grau do polinômio no numerador e depois tentar encontrar frações parciais cuja soma seja igual à parte fracionária restante.
+
+Nossa sugestão é que agora você leia a seção 7.4 do livro \sugestao{Calculus} até o final do terceiro exemplo e então comece a resolver os exercícios da lista oficial de MA111 sobre frações parciais.
+
+%\end{comment}
+\paraTutores
+
+\section{Comentários finais}
+
+A técnica de frações parciais é um pouco mais intrincada do que o que apresentamos neste capítulo. Isso é necessário para que ela possa ser aplicada em uma gama maior de situações, porém, a nossa intenção era apresentar as principais ideias por trás do método, sem discutir algumas das suas minúcias. A introdução desse detalhes ocorrerá ao longo dos exemplos da elitura sugerida aos estudantes logo acima.
+
+\newpage
+
+\section{Gabarito}
+
+\imprimeGabarito
+
+%\end{comment}
+\paraAmbos
+
+\end{document}
